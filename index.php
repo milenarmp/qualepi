@@ -1,4 +1,16 @@
 <?php
+//Configurações do Doctrine ORM
+
+use models\Service\CertificadoAprovacaoService;
+//API para REST
+//use Synfony\Component\HttpFoundation\Request;
+
+$app['clienteService'] = function() use ($em){
+	$certificadoAprovacaoService = new CertificadoAprovacaoService($em);
+	return $certificadoAprovacaoService;
+}
+
+
 /**
  * CodeIgniter
  *
@@ -313,3 +325,4 @@ switch (ENVIRONMENT)
  * And away we go...
  */
 require_once BASEPATH.'core/CodeIgniter.php';
+

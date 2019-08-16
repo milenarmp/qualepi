@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 namespace models\Entity;
 
@@ -7,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity @ORM\Table(name="ca")
 **/
-class CertificadoAprovacao{
+class CertificadoAprovacao extends CI_Model{
 	/**
 	* @ORM\Id
 	* @ORM\Column(type="integer", name="id_ca")
