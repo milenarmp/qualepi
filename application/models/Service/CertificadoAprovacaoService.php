@@ -28,19 +28,31 @@ class CertificadoAprovacaoService{
 		return $certificadoAprovacao;
 	}
 	//Atualização de registro no db		
-	public function update(){
-
+	public function update($id, array $array){
+		
+		$certificadoAprovacao->setNumero($data['numero']);
+		$certificadoAprovacao->setMembrosProtecao($data['membrosProtecao']);
+		$certificadoAprovacao->setRestricoes($data['restricoes']);
+		$certificadoAprovacao->setDataValidade($data['dataValidade']);
+		$certificadoAprovacao->setObservacoes($data['observacoes']);
+		$certificadoAprovacao->setAgentesProtecao($data['agenteProtecao']);
+		$certificadoAprovacao->setFabricante($data['fabricante']);
+		$certificadoAprovacao->setEExcluido($data['eExcluido']);
+		
+		$this->em->persist($certificadoAprovacao);
+		$this->em->flush();
+		return $certificadoAprovacao;
 	}
 	//Atualização de registro no db	
 	public function fetchAll(){
 
 	}
 
-	public function find(){
-		
+	public function find($id){
+
 	}
 
-	public function delete(){
+	public function delete($id){
 
 	}
 }
