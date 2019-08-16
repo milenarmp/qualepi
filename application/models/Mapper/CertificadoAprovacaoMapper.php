@@ -6,7 +6,7 @@ class CertificadoAprovacaoMapper{
 	use models\Entity\CertificadoAprovacao;
 	use Doctrine\ORM\Entity Manager;
 
-	public function __construc(EntityManager $em){
+	public function __construct(EntityManager $em){
 		$this->em = $em;
 	}
 
