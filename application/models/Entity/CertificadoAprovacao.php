@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 namespace models\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**

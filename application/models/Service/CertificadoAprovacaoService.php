@@ -1,18 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-namespace models\Service;
 
+namespace models\Service;
+include_once(BASEPATH . 'core/Model.php');
 use models\Entity\CertificadoAprovacao as CertificadoAprovacao;
 use Doctrine\ORM\EntityManager;
 
-class CertificadoAprovacaoService{
+class CertificadoAprovacaoService extends CI_Model{
 	private $em;
+
 	//Construtor da Classe
-	public function __construct(EntityManager $em){
-		$this->em = $em;
+	public function __construct(){
+		parent::__construct();
 	}
 	//Inserção de novo registro no db	
-	public function insert(array $data){
+	public function insert(array $data){		
 		//Preenchendo um objeto da classe Certificado Aprovação para persistir no db
 		$certificadoAprovacao = new CertificadoAprovacao;
 
@@ -48,8 +50,9 @@ class CertificadoAprovacaoService{
 		return $certificadoAprovacao;
 	}
 	//Retorna todos os registros da entidade	
-	public function fetchAll(){
-		$repo = $this->em->getRepository("models\Entity\CertificadoAprovacao");
+	public function fetchAll($em){
+		$this->em = $em;		
+		$repo = $this->em->getRepository('application\models\Entity\CertificadoAprovacao');
 		return $repo->findAll();
 		 
 	}

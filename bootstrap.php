@@ -29,10 +29,10 @@ $driverChain = new Doctrine\ORM\Mapping\Driver\DriverChain();
 $driverChain->addDriver($annotationDriver,'models');
 
 $config = new Doctrine\ORM\Configuration;
-//$paths = array(__DIR__ . "src/models/Entity");
-//$isDevMode = false;
+$paths = array(__DIR__ . "/models/Entity");
+$isDevMode = true;
 
-//$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
 
 $config->setProxyDir('/tmp');
 $config->setProxyNamespace('Proxy');
@@ -42,7 +42,7 @@ $config->setMetadataDriverImpl($driverChain);
 // use our allready initialized cache driver
 $config->setMetadataCacheImpl($cache);
 $config->setQueryCacheImpl($cache);
-
+$config->addEntityNamespace('', 'application/models/Entity');
 AnnotationRegistry::registerFile(__DIR__. DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'doctrine' . DIRECTORY_SEPARATOR . 'orm' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'Doctrine' . DIRECTORY_SEPARATOR . 'ORM' . DIRECTORY_SEPARATOR . 'Mapping' . DIRECTORY_SEPARATOR . 'Driver' . DIRECTORY_SEPARATOR . 'DoctrineAnnotations.php');
 
 $evm = new Doctrine\Common\EventManager();
