@@ -1,22 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-namespace models\Service;
-include_once(BASEPATH . 'core/Model.php');
-use models\Entity\CertificadoAprovacao as CertificadoAprovacao;
+namespace Service;
 use Doctrine\ORM\EntityManager;
+class CertificadoAprovacaoService {
 
-class CertificadoAprovacaoService extends CI_Model{
-	private $em;
-
-	//Construtor da Classe
-	public function __construct(){
-		parent::__construct();
-	}
 	//Inserção de novo registro no db	
-	public function insert(array $data){		
+	public function insert(array $data, $em){
+		require_once(APPPATH . "models/Entity/CertificadoAprovacao.php");
 		//Preenchendo um objeto da classe Certificado Aprovação para persistir no db
-		$certificadoAprovacao = new CertificadoAprovacao;
+		$certificadoAprovacao = new \Entity\CertificadoAprovacao;
 
 		$certificadoAprovacao->setNumero($data['numero']);
 		$certificadoAprovacao->setMembrosProtecao($data['membrosProtecao']);
@@ -27,14 +19,14 @@ class CertificadoAprovacaoService extends CI_Model{
 		$certificadoAprovacao->setFabricante($data['fabricante']);
 		$certificadoAprovacao->setEExcluido($data['eExcluido']);
 
-		$this->em->persist($certificadoAprovacao);
-		$this->em->flush();
+		$em->persist($certificadoAprovacao);
+		$em->flush();
 		return $certificadoAprovacao;
 	}
 	//Atualização de registro no db		
 	public function update($id, array $array){
 		//Criando um dummy objeto com o id para realizar o update
-		$certificadoAprovacao = $this->em->getReference("models\Entity\Cliente", $id);
+		$certificadoAprovacao = $this->em->getReference("models\Entity\CertificadoAprovacao", $id);
 		//Passando os campos para preenchimento do objeto
 		$certificadoAprovacao->setNumero($data['numero']);
 		$certificadoAprovacao->setMembrosProtecao($data['membrosProtecao']);
@@ -52,7 +44,7 @@ class CertificadoAprovacaoService extends CI_Model{
 	//Retorna todos os registros da entidade	
 	public function fetchAll($em){
 		$this->em = $em;		
-		$repo = $this->em->getRepository('application\models\Entity\CertificadoAprovacao');
+		$repo = $this->em->getRepository("models\Entity\CertificadoAprovacao");
 		return $repo->findAll();
 		 
 	}

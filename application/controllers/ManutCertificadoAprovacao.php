@@ -1,24 +1,31 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-include_once 'application/models/Service/CertificadoAprovacaoService.php';
-include_once 'application/libraries/Doctrine.php';
 class ManutCertificadoAprovacao extends CI_Controller{
 
+	private $em;
 
 	public function __construct(){
 		parent::__construct();
-		// $this->load->library();
+		$this->load->library('doctrine');
+		$this->em = $this->doctrine->em;
+		$this->load->model('Service\CertificadoAprovacaoService', 'CertificadoAprovacaoService');
 	}
 
 	public function index(){
-
+		$Teste = $this->CertificadoAprovacaoService->insert(array(
+			'numero' => '1',
+			'membrosProtecao' => 'braço',
+			'restricoes' => 'nenhuma',
+			'dataValidade' => null,
+			'observacoes' => 'olhos',
+			'agenteProtecao' => 'frio',
+			'fabricante' => '3M do Brasil',
+			'eExcluido' => '0'
+		), $this->em);
 	}
 
 	public function fetchAll(){
-		$Doctrine = new Doctrine();
-		$em = $Doctrine->getEntityManager();
-		$certificadoAprovacao = new CertificadoAprovacaoService();
-		$certificadoAprovacao->fetchAll($em);		
+	
 	}
 
 }
