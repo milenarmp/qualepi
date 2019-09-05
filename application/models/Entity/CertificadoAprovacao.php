@@ -1,6 +1,6 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 namespace Entity;
+//defined('BASEPATH') OR exit('No direct script access allowed');
 use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity @ORM\Table(name="ca")
@@ -15,9 +15,63 @@ class CertificadoAprovacao {
 
 	/**
 	* @ORM\Column(type="integer", name="numero_ca")
-	* @ORM\GeneratedValue
 	*/
 	private $numero;
+
+	/**
+	* @ORM\Column(type="integer", name="numero_processo_ca")
+	*/
+	private $numeroProcesso;
+
+	/**
+	* @ORM\Column(type="integer", name="cnpj_ca")
+	*/
+	private $cnpj;
+
+	/**
+	* @ORM\Column(type="integer", name="cnpj_laboratorio_ca")
+	*/
+	private $cnpjLaboratorio;
+
+	/**
+	* @ORM\Column(type="integer", name="referencia_ca")
+	*/
+	private $referencia;
+
+	/**
+	* @ORM\Column(type="integer", name="nr_laudo_ca")
+	*/
+	private $nrLaudo;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="norma_ca")
+	**/
+	private $norma;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="razao_social_ca")
+	**/
+	private $razaoSocial;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="razao_social_laboratorio_ca")
+	**/
+	private $razaoSocialLaboratorio;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="natureza_ca")
+	**/
+	private $natureza;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="nome_ca")
+	**/
+	private $nome;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="cor_ca", nullable=true)
+	**/
+	private $cor;
 
 	/**
 	* @ORM\Column(type="string", length=255, name="membros_protecao_ca")
@@ -25,9 +79,9 @@ class CertificadoAprovacao {
 	private $membrosProtecao;
 
 	/**
-	* @ORM\Column(type="string", length=255, name="restricoes_ca")
+	* @ORM\Column(type="string", length=255, name="restrito_para_ca")
 	**/
-	private $restricoes;
+	private $restritoPara;
 
 	/**
 	* @ORM\Column(type="date", name="data_validade_ca")
@@ -35,19 +89,29 @@ class CertificadoAprovacao {
 	private $dataValidade;
 
 	/**
-	* @ORM\Column(type="string", length=255, name="observacoes_ca")
+	* @ORM\Column(type="string", length=255, name="descricao_ca")
+	**/
+	private $descricao;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="aprovado_para_ca")
+	**/
+	private $aprovadoPara;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="marca_ca")
+	**/
+	private $marca;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="situacao_ca")
+	**/
+	private $situacao;
+
+	/**
+	* @ORM\Column(type="string", length=255, name="observacoes_ca", nullable=true)
 	**/
 	private $observacoes;
-
-	/**
-	* @ORM\Column(type="string", length=255, name="agentes_protecao_ca")
-	**/
-	private $agentesProtecao;
-
-	/**
-	* @ORM\Column(type="string", length=255, name="fabricante_ca")
-	**/
-	private $fabricante;	
 
 	/**
 	* @ORM\Column(type="boolean", name="excluido_ca")
@@ -112,7 +176,7 @@ class CertificadoAprovacao {
 
 	public function setFabricante($fabricante){
 		$this->fabricante = $fabricante;
-	}	
+	}
 
 	public function getEExcluido(){
 		return $this->eExcluido;
@@ -120,6 +184,6 @@ class CertificadoAprovacao {
 
 	public function setEExcluido($eExcluido){
 		$this->eExcluido = $eExcluido;
-	}	
+	}
 }
 ?>

@@ -25,7 +25,6 @@ class ManutCertificadoAprovacao extends CI_Controller{
 	}
 
 	public function fetchAll(){
-	
-	}
 
+	}
 }
