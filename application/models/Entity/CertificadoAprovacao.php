@@ -24,12 +24,12 @@ class CertificadoAprovacao {
 	private $numeroProcesso;
 
 	/**
-	* @ORM\Column(type="integer", name="cnpj_ca")
+	* @ORM\Column(type="string", length=20, name="cnpj_ca")
 	*/
 	private $cnpj;
 
 	/**
-	* @ORM\Column(type="integer", name="cnpj_laboratorio_ca")
+	* @ORM\Column(type="string", length=20, name="cnpj_laboratorio_ca")
 	*/
 	private $cnpjLaboratorio;
 
