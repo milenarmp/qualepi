@@ -130,6 +130,94 @@ class CertificadoAprovacao {
 		return $this->id;
 	}
 
+	public function getNumeroProcesso(){
+		return $this->numeroProcesso;
+	}
+
+	public function setNumeroProcesso($numeroProcesso){
+		$this->numeroProcesso = $numeroProcesso;
+	}
+
+	public function getCnpj(){
+		return $this->cnpj;
+	}
+
+	public function setCnpj($cnpj){
+		$this->cnpj = $cnpj;
+	}
+
+	public function getCnpjLaboratorio(){
+		return $this->cnpjLaboratorio;
+	}
+
+	public function setCnpjLaboratorio($cnpjLaboratorio){
+		$this->cnpjLaboratorio = $cnpjLaboratorio;
+	}
+
+	public function getReferencia(){
+		return $this->referencia;
+	}
+
+	public function setReferencia($referencia){
+		$this->referencia = $referencia;
+	}
+
+	public function getNrLaudo(){
+		return $this->nrLaudo;
+	}
+
+	public function setNrLaudo($nrLaudo){
+		$this->nrLaudo = $nrLaudo;
+	}
+
+	public function getNorma(){
+		return $this->norma;
+	}
+
+	public function setNorma($norma){
+		$this->norma = $norma;
+	}
+
+	public function getRazaoSocial(){
+		return $this->razaoSocial;
+	}
+
+	public function setRazaoSocial($razaoSocial){
+		$this->razaoSocial = $razaoSocial;
+	}
+
+	public function getRazaoSocialLaboratorio(){
+		return $this->razaoSocialLaboratorio;
+	}
+
+	public function setRazaoSocialLaboratorio($razaoSocialLaboratorio){
+		$this->razaoSocialLaboratorio = $razaoSociallaboratorio;
+	}
+
+	public function getNatureza(){
+		return $this->natureza;
+	}
+
+	public function setNatureza($natureza){
+		$this->natureza = $natureza;
+	}
+
+	public function getNome(){
+		return $this->nome;
+	}
+
+	public function setNome($nome){
+		$this->nome = $nome;
+	}
+
+	public function getCor(){
+		return $this->cor;
+	}
+
+	public function setCor($cor){
+		$this->cor = $cor;
+	}
+
 	public function getMembrosProtecao(){
 		return $this->membrosProtecao;
 	}
@@ -138,12 +226,12 @@ class CertificadoAprovacao {
 		$this->membrosProtecao = $membrosProtecao;
 	}
 
-	public function getRestricoes(){
-		return $this->restricoes;
+	public function getRestritoPara(){
+		return $this->restritoPara;
 	}
 
-	public function setRestricoes($restricoes){
-		$this->restricoes = $restricoes;
+	public function setRestritoPara($restritoPara){
+		$this->restritoPara = $restritoPara;
 	}
 
 	public function getDataValidade(){
@@ -154,28 +242,44 @@ class CertificadoAprovacao {
 		$this->dataValidade = $dataValidade;
 	}
 
+	public function getDescricao(){
+		return $this->descricao;
+	}
+
+	public function setDescricao($descricao){
+		$this->descricao = $descricao;
+	}
+
+	public function getAprovadoPara(){
+		return $this->aprovadoPara;
+	}
+
+	public function setAprovadoPara($aprovadoPara){
+		$this->aprovadoPara = $aprovadoPara;
+	}
+
+	public function getMarca(){
+		return $this->marca;
+	}
+
+	public function setMarca($marca){
+		$this->marca = $marca;
+	}
+
+	public function getSituacao(){
+		return $this->situacao;
+	}
+
+	public function setSituacao($situacao){
+		$this->situacao = $situacao;
+	}
+
 	public function getObservacoes(){
 		return $this->observacoes;
 	}
 
 	public function setObservacoes($observacoes){
 		$this->observacoes = $observacoes;
-	}
-
-	public function getAgentesProtecao(){
-		return $this->agentesProtecao;
-	}
-
-	public function setAgentesProtecao($agentesProtecao){
-		$this->agentesProtecao = $agentesProtecao;
-	}
-
-	public function getFabricante(){
-		return $this->fabricante;
-	}
-
-	public function setFabricante($fabricante){
-		$this->fabricante = $fabricante;
 	}
 
 	public function getEExcluido(){
