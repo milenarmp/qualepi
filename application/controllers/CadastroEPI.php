@@ -15,6 +15,7 @@ class CadastroEPI extends CI_Controller{
 
 		while($linha = fgets($arq)){
 			$registro = array('numero', 'dataValidade', 'situacao', 'numeroProcesso', 'cnpj', 'razaoSocial', 'natureza', 'nome', 'descricao', 'referencia', 'cor', 'aprovadoPara', 'restritoPara', 'cnpjLaboratorio', 'razaoSocialLaboratorio', 'nrLaudo', 'norma');
+			echo $linha;
 		}
 
 		fclose($arq);
