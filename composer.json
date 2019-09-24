@@ -17,7 +17,7 @@
 		"silex/silex": "~1.2"
     },
     "autoload": {
-        "psr-0": {"": "application/"}
+        "psr-0": {"": "models/Entity"}
     },
 	"config":{
 		"bin-dir":"bin/"

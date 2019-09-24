@@ -13,6 +13,7 @@ use Doctrine\ORM\Tools\Setup,
     Doctrine\Common\ClassLoader;
 
 $cache = new Doctrine\Common\Cache\ArrayCache;
+
 $annotationReader = new Doctrine\Common\Annotations\AnnotationReader;
 
 $cachedAnnotationReader = new Doctrine\Common\Annotations\CachedReader(
@@ -22,18 +23,18 @@ $cachedAnnotationReader = new Doctrine\Common\Annotations\CachedReader(
 
 $annotationDriver = new Doctrine\ORM\Mapping\Driver\AnnotationDriver(
     $cachedAnnotationReader, // our cached annotation reader
-    array(__DIR__ . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'models')
+    array(__DIR__ . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'Entity')
 );
 
 $driverChain = new Doctrine\ORM\Mapping\Driver\DriverChain();
-$driverChain->addDriver($annotationDriver,'models');
+$driverChain->addDriver($annotationDriver,'Entity');
 
-$config = new Doctrine\ORM\Configuration;
-//$paths = array(__DIR__ . "src/models/Entity");
-//$isDevMode = false;
+//$config = new Doctrine\ORM\Configuration;
+$paths = array(__DIR__ . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'Entity');
+$isDevMode = true;
 
-//$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
-
+$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, FALSE);
+//$config = Setup::createXMLMetadataConfiguration(array(__DIR__."/config/xml"), $isDevMode);
 $config->setProxyDir('/tmp');
 $config->setProxyNamespace('Proxy');
 $config->setAutoGenerateProxyClasses(true); // this can be based on production config.
@@ -42,7 +43,7 @@ $config->setMetadataDriverImpl($driverChain);
 // use our allready initialized cache driver
 $config->setMetadataCacheImpl($cache);
 $config->setQueryCacheImpl($cache);
-
+$config->addEntityNamespace('', 'Entity');
 AnnotationRegistry::registerFile(__DIR__. DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'doctrine' . DIRECTORY_SEPARATOR . 'orm' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'Doctrine' . DIRECTORY_SEPARATOR . 'ORM' . DIRECTORY_SEPARATOR . 'Mapping' . DIRECTORY_SEPARATOR . 'Driver' . DIRECTORY_SEPARATOR . 'DoctrineAnnotations.php');
 
 $evm = new Doctrine\Common\EventManager();
@@ -58,3 +59,11 @@ $em = EntityManager::create(
     $config,
     $evm
 );
+
+$app = new \Silex\Application();
+$app['debug'] = true;
+
+$app->register(new Silex\Provider\TwigServiceProvider(),
+    array('twig.path' => __DIR__ . '/views'));
+
+ $app->register(new \Silex\Provider\UrlGeneratorServiceProvider());
