@@ -1,0 +1,31 @@
+/*Começo do header*/
+.teste {
+margin-right: -15px;
+margin-left: -15px;
+background-color: rgba(131, 241, 169, 0.4);
+}
+
+#barra {
+	margin-right: -15px;
+	margin-left: -15px;
+	background-image: linear-gradient(to right, #005100, #83f1a9);
+	box-shadow: 1px 3px 3px #888888;
+	text-decoration: none;
+}
+
+#pesquisa {
+	margin-top: 10px;
+	width: 100%;
+	border-radius: 10px;
+	opacity: 0.7;
+	padding-left: 5px;
+}
+
+#filtros {
+	margin-top: -10px;
+}
+
+#buscar {
+	margin-bottom: 20px;
+}
+/*Fim do header*/
