@@ -4,16 +4,16 @@
 			<nav class="navbar navbar-expand-lg navbar-fixed-top" id="barra">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="navbar-link" href="#"><span style="color: white">Início</span></a>
+						<a class="navbar-link" href="#"><span class="barraNavegacao">Início</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="navbar-link" href="#"><span style="color: white">Pesquisar EPIs</span></a>
+						<a class="navbar-link" href="#"><span class="barraNavegacao">Pesquisar EPIs</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="navbar-link" href="#"><span style="color: white">Sobre Nós</span></a>
+						<a class="navbar-link" href="#"><span class="barraNavegacao">Sobre Nós</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="navbar-link" href="#"><span style="color: white">Contato</span></a>
+						<a class="navbar-link" href="#"><span class="barraNavegacao">Contato</span></a>
 					</li>
 				</ul>
 				<span class="navbar-text">Cadastro | Login </span>
@@ -45,4 +45,3 @@
 				</form>
 			</div>
 		</div>
-	</div>

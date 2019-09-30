@@ -9,8 +9,10 @@ html, body {
 	background-color: rgba(131, 241, 169, 0.4);
 	box-shadow: 1px 3px 3px #888888;
 }
-.nav-item {
+.barraNavegacao {
 	margin-right: 15px;
+	text-decoration: none;
+	color: white;
 }
 .navbar-nav {
 	margin-right: 65%;
@@ -48,3 +50,24 @@ html, body {
 	margin-left: -5px;
 }
 /*Fim do header*/
+
+/*Fim do rodapé*/
+.rodape {
+	background-color: rgba(128, 128, 128, 0.5);
+	padding: 20px;
+}
+.links{
+	margin-top: 20px;
+}
+.barraRodape {
+	text-decoration: none;
+	color: black;
+	border-right: 1px solid black;
+}
+.barraRodapeUltimo {
+	text-decoration: none;
+	color: black;
+}
+.direitos {
+	text-align: center;
+}

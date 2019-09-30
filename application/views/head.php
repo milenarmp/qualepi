@@ -6,7 +6,7 @@ $this->load->helper('url');
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>$tituloPagina</title>
+    <title><?=$tituloPagina?></title>
     <meta charset="utf-8">
     <!-- inclusão do plugin DataTables -->
 	<link rel="stylesheet" type="text/css" href="application/views/js/DataTables/datatables.min.css"/>
