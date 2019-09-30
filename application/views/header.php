@@ -18,7 +18,7 @@
 				</ul>
 				<span class="navbar-text">Cadastro | Login </span>
 			</nav><!-- fim da barra de navegação -->
-			<div class="teste">
+			<div>
 				<form>
 					<div class="form-group">
 						<div class="row">
