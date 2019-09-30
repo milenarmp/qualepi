@@ -2,31 +2,36 @@
 		<div class="container-fluid">
 		<div class="header">
 			<nav class="navbar navbar-expand-lg navbar-fixed-top" id="barra">
-				<ul class="navbar-nav" style="margin-right: 65%">
-					<li class="nav-item"  style="margin-right: 15px">
+				<ul class="navbar-nav">
+					<li class="nav-item">
 						<a class="navbar-link" href="#"><span style="color: white">Início</span></a>
 					</li>
-					<li class="nav-item" style="margin-right: 15px">
+					<li class="nav-item">
 						<a class="navbar-link" href="#"><span style="color: white">Pesquisar EPIs</span></a>
 					</li>
-					<li class="nav-item" style="margin-right: 15px">
+					<li class="nav-item">
 						<a class="navbar-link" href="#"><span style="color: white">Sobre Nós</span></a>
 					</li>
-					<li class="nav-item" style="margin-right: 15px">
+					<li class="nav-item">
 						<a class="navbar-link" href="#"><span style="color: white">Contato</span></a>
 					</li>
 				</ul>
 				<span class="navbar-text">Cadastro | Login </span>
 			</nav><!-- fim da barra de navegação -->
-			<div class="teste" style="">
+			<div class="teste">
 				<form>
 					<div class="form-group">
-						<div class="col-md-6 offset-md-1">
-							<input type="text" class="form-conrol" id="pesquisa">
+						<div class="row">
+						<div class="col-md-5 col-lg-5 col-sm-8 offset-md-1">
+							<input type="text" class="form-control" id="pesquisa" placeholder="&#xF002;">
 						</div>
+							<div class="col-md-1 col-lg-1 col-sm-4">
+								<button type="submit" id="btnBuscar" class="btn btn-success btn-sm">Buscar</button>
+							</div>
+					</div>
 					</div>
 					<div class="form-group" id="buscar">
-						<div class="col-md-6 offset-md-1" id="filtros">
+						<div class="col-md-5 offset-md-1 filtros">
 							<label>Pesquisar por:</label>
 							<div class="btn-group" role="group" aria-label="Filtros" style="margin-bottom: 5px">
 								<button type="button" class="btn btn-success btn-sm">nº CA</button>
@@ -40,3 +45,4 @@
 				</form>
 			</div>
 		</div>
+	</div>
