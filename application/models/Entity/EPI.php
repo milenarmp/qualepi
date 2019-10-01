@@ -2,6 +2,7 @@
 namespace Entity;
 //defined('BASEPATH') OR exit('No direct script access allowed');
 use Doctrine\ORM\Mapping as ORM;
+
 /**
 * @ORM\Entity @ORM\Table(name="epi")
 **/
@@ -12,9 +13,11 @@ class EPI {
 	* @ORM\GeneratedValue
 	*/
 	private $id;
-	/**
-	* @ORM\Column(type="", name="")
-	*/
+    /**
+     * Um EPI possui um CertificadoAprovacao
+     * @ORM\OneToOne(targetEntity="CertificadoAprovacao")
+     * @ORM\JoinColumn(name="ca_id", referencedColumnName="id")
+     */
 	private $CertificadoAprovacao;
 	/**
 	* @ORM\Column(type="boolean", name="excluido_epis")

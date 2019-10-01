@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('head', array('tituloPagina' => "Início"));
 		$this->load->view('header');
-		$this->load->view('cadastro');
+		$this->load->view('login');
 		$this->load->view('footer');
 	}
 }

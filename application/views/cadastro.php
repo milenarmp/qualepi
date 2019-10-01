@@ -7,59 +7,59 @@
     		Cadastro de usuário
   		</div>
   	<div class="card-body">
-	<form>
-		<div class="form-group col-lg-12 col-md-12 offset-md-1">
-			<div class="row">
-				<div class="col-md-3 col-lg-3 col-sm-8 labels">
+	<form id="cadastroUsuario">
+		<div class="form-group offset-md-1">
+			<div class="row linha">
+				<div class="col-md-3 col-lg-4 col-sm-8 labels">
 					<label for="nome">Nome completo:</label>
 				</div>
 				<div class="col-md-3 col-lg-6 col-sm-8">
-					<input type="text" class="form-control" id="nome" name="nome">
+					<input type="text" class="form-control" id="nome" name="nome" form="cadastroUsuario">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-3 col-lg-3 col-sm-8 labels">
+			<div class="row linha">
+				<div class="col-md-3 col-lg-4 col-sm-8 labels">
 					<label for="nomeUsuario">Nome de usuário:</label>
 				</div>
 				<div class="col-md-3 col-lg-6 col-sm-8">
-					<input type="text" class="form-control" id="nomeUsuario" name="nomeUsuario">
+					<input type="text" class="form-control" id="nomeUsuario" name="nomeUsuario" form="cadastroUsuario">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-3 col-lg-3 col-sm-8 labels">
+			<div class="row linha">
+				<div class="col-md-3 col-lg-4 col-sm-8 labels">
 					<label for="email">E-mail:</label>
 				</div>
 				<div class="col-md-3 col-lg-6 col-sm-8">
-					<input type="text" class="form-control" id="email" name="email">
+					<input type="text" class="form-control" id="email" name="email" form="cadastroUsuario">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-3 col-lg-3 col-sm-8 labels">
+			<div class="row linha">
+				<div class="col-md-3 col-lg-4 col-sm-8 labels">
 					<label for="confirmacaoEmail">Confirmação de e-mail:</label>
 				</div>
 				<div class="col-md-3 col-lg-6 col-sm-8">
-					<input type="text" class="form-control" id="confirmacaoEmail" name="confirmacaoEmail">
+					<input type="text" class="form-control" id="confirmacaoEmail" name="confirmacaoEmail" form="cadastroUsuario">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-3 col-lg-3 col-sm-8 labels">
+			<div class="row linha">
+				<div class="col-md-3 col-lg-4 col-sm-8 labels">
 					<label for="senha">Senha:</label>
 				</div>
 				<div class="col-md-3 col-lg-6 col-sm-8">
-					<input type="password" class="form-control" id="senha" name="senha">
+					<input type="password" class="form-control" id="senha" name="senha" form="cadastroUsuario">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-3 col-lg-3 col-sm-8 labels">
+			<div class="row linha">
+				<div class="col-md-3 col-lg-4 col-sm-8 labels">
 					<label for="confirmacaoSenha">Confirmação da senha:</label>
 				</div>
 				<div class="col-md-3 col-lg-6 col-sm-8">
-					<input type="password" class="form-control" id="confirmacaoSenha" name="confirmacaoSenha">
+					<input type="password" class="form-control" id="confirmacaoSenha" name="confirmacaoSenha" form="cadastroUsuario">
 				</div>
 			</div>
-			<div class="form-group" id="botoesForm">
-				<button type="button" class="btn btn-success">Enviar</button>
-				<button type="button" class="btn btn-warning">Limpar</button>
+			<div class="form-group offset-md-4" id="botoesForm">
+				<button type="button" class="btn btn-success" id="btnCadastrar">Enviar</button>
+				<button type="button" class="btn btn-warning" id="btnLimpar">Limpar</button>
 			</div>
 		</div>
 	</form>

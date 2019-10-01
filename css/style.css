@@ -96,3 +96,26 @@ html, body {
 	margin-left: 22.5%;
 	margin-bottom: 20px;
 }
+.linha{
+	margin-top: 10px;
+}
+#botoesForm{
+	margin-top: 15px;
+}
+/*Fim do cadastro*/
+
+/*Fim do login*/
+#nomeUsuario{
+	text-align: center;
+}
+#senha{
+	text-align: center;
+}
+.dadosUsuarioLogin {
+	width: 45%;
+	margin-left: 27.5%;
+	margin-bottom: 20px;
+}
+#btnLogin{
+	margin-top: 20px;
+}

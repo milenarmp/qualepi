@@ -28,6 +28,17 @@ class Comentario {
 	* @ORM\Column(type="boolean", name="excluido_comentario")
 	**/
 	private $eExcluido;
+	/**
+    * @ORM\ManyToOne(targetEntity="EPI")
+    * @ORM\JoinColumn(name="epi_id", referencedColumnName="id")
+    */
+	private $EPI;
+    /**
+     * Diversos comentários possuem um usuário.
+     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="Comentario")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     */
+    private $Usuario;
 
 	public function getId(){
 		return $this->id;

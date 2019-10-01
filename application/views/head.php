@@ -7,7 +7,8 @@ $this->load->helper('url');
 <html lang="pt-br">
   <head>
     <title><?=$tituloPagina?></title>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8"> -->
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
     <!-- inclusão do plugin DataTables -->
 	<link rel="stylesheet" type="text/css" href="application/views/js/DataTables/datatables.min.css"/>
 	<script type="text/javascript" src="application/views/js/DataTables/datatables.min.js"></script>

@@ -29,7 +29,7 @@ class CertificadoAprovacao {
 	*/
 	private $cnpjLaboratorio;
 	/**
-	* @ORM\Column(type="integer", name="referencia_ca")
+	* @ORM\Column(type="string",length=255, name="referencia_ca")
 	*/
 	private $referencia;
 	/**
