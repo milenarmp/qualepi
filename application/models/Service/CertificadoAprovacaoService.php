@@ -10,8 +10,7 @@ class CertificadoAprovacaoService {
 		//Preenchendo um objeto da classe Certificado Aprovação para persistir no db
 		$certificadoAprovacao = new \Entity\CertificadoAprovacao;
 
-		$certificadoAprovacao->setNumero($data['numero']);
-		$certificadoAprovacao->setMembrosProtecao($data['membrosProtecao']);
+		$certificadoAprovacao->setNumero($data['numero_ca']);
 		$certificadoAprovacao->setRestricoes($data['restricoes']);
 		$certificadoAprovacao->setDataValidade($data['dataValidade']);
 		$certificadoAprovacao->setObservacoes($data['observacoes']);

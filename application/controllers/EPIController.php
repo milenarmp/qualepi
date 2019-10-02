@@ -1,25 +1,42 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class CadastroEPI extends CI_Controller{
+/**
+ * Classe responsável pelo CRUD da entidade EPI
+*/
+class EPIController extends CI_Controller{
 
 	private $em;
-
+	/**
+ 	* Método construtor da classe
+	*/
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('doctrine');
 		$this->em = $this->doctrine->em;
 		$this->load->model('Service\CertificadoAprovacaoService', 'CertificadoAprovacaoService');
 	}
-
+	/**
+ 	* Método index da classe, renderiza a visão
+	*/
 	public function index(){
 		$this->load->view('head', array('tituloPagina' => "Início"));
-		$arq = fopen("C:\\xampp\\htdocs\\qualepi\\application\\controllers\\tgg_export_caepi.txt", "r");
+		$this->load->view('header');
+		$this->load->view('footer');
+	}
+
+	/**
+ 	* Atualiza a base de dados
+ 	* @return array Json
+	*/
+ 	public function atualizarEPIs(){
+ 				$arq = fopen("C:\\xampp\\htdocs\\qualepi\\application\\controllers\\tgg_export_caepi.txt", "r");
 
 		while($linha = fgets($arq)){
 			$registro = explode("|", $linha);
-			$data = array('numero_ca' => $registro[0],
-				'data_validade_ca' => $registro[1],
+			$data = "$registro[1]";
+			$dataFormatada = implode("-", array_reverse(explode("/", $data)));
+			$dados = array('numero_ca' => $registro[0],
+				'data_validade_ca' => $dataFormatada,
 				'situacao_ca' => $registro[2],
 				'numero_processo_ca' => $registro[3],
 				'cnpj_ca' => $registro[4],
@@ -37,8 +54,10 @@ class CadastroEPI extends CI_Controller{
 				'razao_social_laboratorio_ca' => $registro[16],
 				'nr_laudo_ca' => $registro[17],
 				'norma_ca' => $registro[18]);
-			var_dump($data);
+			if($registro[2] != 'VENCIDO'){
+				$this->CertificadoAprovacaoService->insert($dados);
+			}
 		}
 		fclose($arq);
-	}
+ 	}
 }

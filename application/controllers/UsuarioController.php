@@ -1,16 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class CadastroController extends CI_Controller{
+/**
+* Classe responsável pelo CRUD da entidade Usuario
+*/
+class UsuarioController extends CI_Controller{
 
 	private $em;
-
+	/**
+ 	* Método construtor da classe
+	*/
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('doctrine');
 		$this->em = $this->doctrine->em;
 	}
 
+	/**
+ 	* Método index da classe, renderiza a visão
+	*/
 	public function index(){
 		$this->load->view('head', array('tituloPagina' => "Cadastro"));
 		$this->load->view('header');
@@ -18,7 +25,12 @@ class CadastroController extends CI_Controller{
 		$this->load->view('footer');
 	}
 
-	public function cadastrar(){
+	/**
+ 	* Cadastra um novo usuário na base de dados
+ 	* @return array Json
+ 	* @param  $dados Array contendo as informações cadastrais
+	*/
+	public function cadastrar($dados){
 
 	}
 }

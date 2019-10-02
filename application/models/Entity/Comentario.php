@@ -1,6 +1,5 @@
 <?php
 namespace Entity;
-//defined('BASEPATH') OR exit('No direct script access allowed');
 use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity @ORM\Table(name="comentario")
