@@ -1,6 +1,6 @@
 <?php
 namespace Entity;
-//defined('BASEPATH') OR exit('No direct script access allowed');
+
 use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity @ORM\Table(name="ca")
@@ -61,10 +61,6 @@ class CertificadoAprovacao {
 	**/
 	private $cor;
 	/**
-	* @ORM\Column(type="string", length=255, name="membros_protecao_ca")
-	**/
-	private $membrosProtecao;
-	/**
 	* @ORM\Column(type="string", length=255, name="restrito_para_ca")
 	**/
 	private $restritoPara;
@@ -93,180 +89,175 @@ class CertificadoAprovacao {
 	**/
 	private $observacoes;
 	/**
-	* @ORM\Column(type="boolean", name="excluido_ca")
+	* @ORM\Column(type="boolean", name="excluido_ca", nullable=true)
 	**/
 	private $eExcluido;
 
-	public function getNumero(){
-		return $this->numero;
-	}
+	function getId() {
+            return $this->id;
+        }
 
-	public function setNumero($numero){
-		$this->numero = $numero;
-	}
+        function getNumero() {
+            return $this->numero;
+        }
 
-	public function getId(){
-		return $this->id;
-	}
+        function getNumeroProcesso() {
+            return $this->numeroProcesso;
+        }
 
-	public function getNumeroProcesso(){
-		return $this->numeroProcesso;
-	}
+        function getCnpj() {
+            return $this->cnpj;
+        }
 
-	public function setNumeroProcesso($numeroProcesso){
-		$this->numeroProcesso = $numeroProcesso;
-	}
+        function getCnpjLaboratorio() {
+            return $this->cnpjLaboratorio;
+        }
 
-	public function getCnpj(){
-		return $this->cnpj;
-	}
+        function getReferencia() {
+            return $this->referencia;
+        }
 
-	public function setCnpj($cnpj){
-		$this->cnpj = $cnpj;
-	}
+        function getNrLaudo() {
+            return $this->nrLaudo;
+        }
 
-	public function getCnpjLaboratorio(){
-		return $this->cnpjLaboratorio;
-	}
+        function getNorma() {
+            return $this->norma;
+        }
 
-	public function setCnpjLaboratorio($cnpjLaboratorio){
-		$this->cnpjLaboratorio = $cnpjLaboratorio;
-	}
+        function getRazaoSocial() {
+            return $this->razaoSocial;
+        }
 
-	public function getReferencia(){
-		return $this->referencia;
-	}
+        function getRazaoSocialLaboratorio() {
+            return $this->razaoSocialLaboratorio;
+        }
 
-	public function setReferencia($referencia){
-		$this->referencia = $referencia;
-	}
+        function getNatureza() {
+            return $this->natureza;
+        }
 
-	public function getNrLaudo(){
-		return $this->nrLaudo;
-	}
+        function getNome() {
+            return $this->nome;
+        }
 
-	public function setNrLaudo($nrLaudo){
-		$this->nrLaudo = $nrLaudo;
-	}
+        function getCor() {
+            return $this->cor;
+        }
 
-	public function getNorma(){
-		return $this->norma;
-	}
+        function getRestritoPara() {
+            return $this->restritoPara;
+        }
 
-	public function setNorma($norma){
-		$this->norma = $norma;
-	}
+        function getDataValidade() {
+            return $this->dataValidade;
+        }
 
-	public function getRazaoSocial(){
-		return $this->razaoSocial;
-	}
+        function getDescricao() {
+            return $this->descricao;
+        }
 
-	public function setRazaoSocial($razaoSocial){
-		$this->razaoSocial = $razaoSocial;
-	}
+        function getAprovadoPara() {
+            return $this->aprovadoPara;
+        }
 
-	public function getRazaoSocialLaboratorio(){
-		return $this->razaoSocialLaboratorio;
-	}
+        function getMarca() {
+            return $this->marca;
+        }
 
-	public function setRazaoSocialLaboratorio($razaoSocialLaboratorio){
-		$this->razaoSocialLaboratorio = $razaoSociallaboratorio;
-	}
+        function getSituacao() {
+            return $this->situacao;
+        }
 
-	public function getNatureza(){
-		return $this->natureza;
-	}
+        function getObservacoes() {
+            return $this->observacoes;
+        }
 
-	public function setNatureza($natureza){
-		$this->natureza = $natureza;
-	}
+        function getEExcluido() {
+            return $this->eExcluido;
+        }
 
-	public function getNome(){
-		return $this->nome;
-	}
+        function setId($id) {
+            $this->id = $id;
+        }
 
-	public function setNome($nome){
-		$this->nome = $nome;
-	}
+        function setNumero($numero) {
+            $this->numero = $numero;
+        }
 
-	public function getCor(){
-		return $this->cor;
-	}
+        function setNumeroProcesso($numeroProcesso) {
+            $this->numeroProcesso = $numeroProcesso;
+        }
 
-	public function setCor($cor){
-		$this->cor = $cor;
-	}
+        function setCnpj($cnpj) {
+            $this->cnpj = $cnpj;
+        }
 
-	public function getMembrosProtecao(){
-		return $this->membrosProtecao;
-	}
+        function setCnpjLaboratorio($cnpjLaboratorio) {
+            $this->cnpjLaboratorio = $cnpjLaboratorio;
+        }
 
-	public function setMembrosProtecao($membrosProtecao){
-		$this->membrosProtecao = $membrosProtecao;
-	}
+        function setReferencia($referencia) {
+            $this->referencia = $referencia;
+        }
 
-	public function getRestritoPara(){
-		return $this->restritoPara;
-	}
+        function setNrLaudo($nrLaudo) {
+            $this->nrLaudo = $nrLaudo;
+        }
 
-	public function setRestritoPara($restritoPara){
-		$this->restritoPara = $restritoPara;
-	}
+        function setNorma($norma) {
+            $this->norma = $norma;
+        }
 
-	public function getDataValidade(){
-		return $this->dataValidade;
-	}
+        function setRazaoSocial($razaoSocial) {
+            $this->razaoSocial = $razaoSocial;
+        }
 
-	public function setDataValidade($dataValidade){
-		$this->dataValidade = $dataValidade;
-	}
+        function setRazaoSocialLaboratorio($razaoSocialLaboratorio) {
+            $this->razaoSocialLaboratorio = $razaoSocialLaboratorio;
+        }
 
-	public function getDescricao(){
-		return $this->descricao;
-	}
+        function setNatureza($natureza) {
+            $this->natureza = $natureza;
+        }
 
-	public function setDescricao($descricao){
-		$this->descricao = $descricao;
-	}
+        function setNome($nome) {
+            $this->nome = $nome;
+        }
 
-	public function getAprovadoPara(){
-		return $this->aprovadoPara;
-	}
+        function setCor($cor) {
+            $this->cor = $cor;
+        }
 
-	public function setAprovadoPara($aprovadoPara){
-		$this->aprovadoPara = $aprovadoPara;
-	}
+        function setRestritoPara($restritoPara) {
+            $this->restritoPara = $restritoPara;
+        }
 
-	public function getMarca(){
-		return $this->marca;
-	}
+        function setDataValidade($dataValidade) {
+            $this->dataValidade = $dataValidade;
+        }
 
-	public function setMarca($marca){
-		$this->marca = $marca;
-	}
+        function setDescricao($descricao) {
+            $this->descricao = $descricao;
+        }
 
-	public function getSituacao(){
-		return $this->situacao;
-	}
+        function setAprovadoPara($aprovadoPara) {
+            $this->aprovadoPara = $aprovadoPara;
+        }
 
-	public function setSituacao($situacao){
-		$this->situacao = $situacao;
-	}
+        function setMarca($marca) {
+            $this->marca = $marca;
+        }
 
-	public function getObservacoes(){
-		return $this->observacoes;
-	}
+        function setSituacao($situacao) {
+            $this->situacao = $situacao;
+        }
 
-	public function setObservacoes($observacoes){
-		$this->observacoes = $observacoes;
-	}
+        function setObservacoes($observacoes) {
+            $this->observacoes = $observacoes;
+        }
 
-	public function getEExcluido(){
-		return $this->eExcluido;
-	}
-
-	public function setEExcluido($eExcluido){
-		$this->eExcluido = $eExcluido;
-	}
+        function setEExcluido($eExcluido) {
+            $this->eExcluido = $eExcluido;
+        }
 }
-?>

@@ -12,11 +12,11 @@ class EPI {
 	* @ORM\GeneratedValue
 	*/
 	private $id;
-    /**
-     * Um EPI possui um CertificadoAprovacao
-     * @ORM\OneToOne(targetEntity="CertificadoAprovacao")
-     * @ORM\JoinColumn(name="ca_id", referencedColumnName="id")
-     */
+        /**
+        * Um EPI possui um CertificadoAprovacao
+        * @ORM\OneToOne(targetEntity="CertificadoAprovacao")
+        * @ORM\JoinColumn(name="ca_epi", referencedColumnName="numero_ca")
+        */
 	private $CertificadoAprovacao;
 	/**
 	* @ORM\Column(type="boolean", name="excluido_epis")

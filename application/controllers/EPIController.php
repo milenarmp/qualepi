@@ -21,6 +21,7 @@ class EPIController extends CI_Controller{
 	public function index(){
 		$this->load->view('head', array('tituloPagina' => "Início"));
 		$this->load->view('header');
+                $this->load->view('manterEPI');
 		$this->load->view('footer');
 	}
 
@@ -29,12 +30,14 @@ class EPIController extends CI_Controller{
  	* @return array Json
 	*/
  	public function atualizarEPIs(){
- 				$arq = fopen("C:\\xampp\\htdocs\\qualepi\\application\\controllers\\tgg_export_caepi.txt", "r");
-
+            set_time_limit(60 * 60);
+            $arq = fopen("C:\\xampp\\htdocs\\qualepi\\application\\controllers\\teste.txt", "r");
+            $contador = 0;
 		while($linha = fgets($arq)){
 			$registro = explode("|", $linha);
 			$data = "$registro[1]";
-			$dataFormatada = implode("-", array_reverse(explode("/", $data)));
+			$data1 = implode("/", array_reverse(explode("/", $data)));
+                        $dataFormatada = $this->teste($data1);
 			$dados = array('numero_ca' => $registro[0],
 				'data_validade_ca' => $dataFormatada,
 				'situacao_ca' => $registro[2],
@@ -55,9 +58,19 @@ class EPIController extends CI_Controller{
 				'nr_laudo_ca' => $registro[17],
 				'norma_ca' => $registro[18]);
 			if($registro[2] != 'VENCIDO'){
-				$this->CertificadoAprovacaoService->insert($dados);
+                            $this->CertificadoAprovacaoService->insert($dados, $this->em);
+                            $contador++;
 			}
 		}
 		fclose($arq);
+            $retorno = array(
+                'registros' => $contador,
+                'msg' => 'Sucesso! Quantidade de EPIs cadastrados: '
+            );
+            echo json_encode($retorno);
  	}
+        
+        public function teste($data){
+            return date("Y/m/d", strtotime($data));
+        }
 }
