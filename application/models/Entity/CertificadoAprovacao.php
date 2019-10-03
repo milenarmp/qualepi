@@ -3,13 +3,13 @@ namespace Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 /**
-* @ORM\Entity @ORM\Table(name="ca")
+* @ORM\Table(name="ca")
+* @ORM\Entity(repositoryClass=”models\Repository\CertificadoAprovacao”)
 **/
 class CertificadoAprovacao {
 	/**
 	* @ORM\Id
 	* @ORM\Column(type="integer", name="id_ca")
-	* @ORM\GeneratedValue
 	*/
 	private $id;
 	/**

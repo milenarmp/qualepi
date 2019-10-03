@@ -15,11 +15,11 @@ class EPI {
         /**
         * Um EPI possui um CertificadoAprovacao
         * @ORM\OneToOne(targetEntity="CertificadoAprovacao")
-        * @ORM\JoinColumn(name="ca_epi", referencedColumnName="numero_ca")
+        * @ORM\JoinColumn(name="ca_epi", referencedColumnName="id_ca")
         */
 	private $CertificadoAprovacao;
 	/**
-	* @ORM\Column(type="boolean", name="excluido_epis")
+	* @ORM\Column(type="boolean", name="excluido_epi")
 	**/
 	private $eExcluido;
 

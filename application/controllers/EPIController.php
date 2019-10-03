@@ -14,6 +14,7 @@ class EPIController extends CI_Controller{
 		$this->load->library('doctrine');
 		$this->em = $this->doctrine->em;
 		$this->load->model('Service\CertificadoAprovacaoService', 'CertificadoAprovacaoService');
+		$this->load->model('Service\EPIService', 'EPIService');
 	}
 	/**
  	* Método index da classe, renderiza a visão
@@ -27,7 +28,7 @@ class EPIController extends CI_Controller{
 
 	/**
  	* Atualiza a base de dados
- 	* @return array Json
+ 	* @return $retorno Array Json
 	*/
  	public function atualizarEPIs(){
             set_time_limit(60 * 60);
@@ -38,7 +39,8 @@ class EPIController extends CI_Controller{
 			$data = "$registro[1]";
 			$data1 = implode("/", array_reverse(explode("/", $data)));
                         $dataFormatada = $this->teste($data1);
-			$dados = array('numero_ca' => $registro[0],
+			$dados = array('id_ca' => $registro[0],
+                                'numero_ca' => $registro[0],
 				'data_validade_ca' => $dataFormatada,
 				'situacao_ca' => $registro[2],
 				'numero_processo_ca' => $registro[3],
@@ -58,8 +60,14 @@ class EPIController extends CI_Controller{
 				'nr_laudo_ca' => $registro[17],
 				'norma_ca' => $registro[18]);
 			if($registro[2] != 'VENCIDO'){
-                            $this->CertificadoAprovacaoService->insert($dados, $this->em);
-                            $contador++;
+                            if(!is_object($this->CertificadoAprovacaoService->find($registro[0], $this->em))){
+                                $certificadoAprovacao = $this->CertificadoAprovacaoService->insert($dados, $this->em);
+                                var_dump($certificadoAprovacao);
+                                $dadosEPI = array(
+                                    'certificadoAprovacao' => $certificadoAprovacao);
+                                $this->EPIService->insert($dadosEPI, $this->em);
+                             $contador++;   
+                            }
 			}
 		}
 		fclose($arq);
@@ -69,7 +77,7 @@ class EPIController extends CI_Controller{
             );
             echo json_encode($retorno);
  	}
-        
+
         public function teste($data){
             return date("Y/m/d", strtotime($data));
         }
