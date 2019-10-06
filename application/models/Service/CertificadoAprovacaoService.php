@@ -2,6 +2,9 @@
 namespace Service;
 use Doctrine\ORM\EntityManager;
 require_once 'C:\xampp\htdocs\qualepi\bootstrap.php';
+require_once(APPPATH . "models/Entity/CertificadoAprovacao.php");
+require_once(APPPATH . "models/Repository/CertificadoAprovacaoRepository.php");
+
 class CertificadoAprovacaoService {
 
 	/**Inserção de novo registro no dd
@@ -10,7 +13,6 @@ class CertificadoAprovacaoService {
 	* @return $certificadoAprovacao Objeto do tipo CertificadoAprovacao
 	*/
 	public function insert(array $data, $em){
-		require_once(APPPATH . "models/Entity/CertificadoAprovacao.php");
 		$certificadoAprovacao = new \Entity\CertificadoAprovacao;
                 $date = new \DateTime($data['data_validade_ca']);
                 $certificadoAprovacao->setId($data['id_ca']);
@@ -38,7 +40,7 @@ class CertificadoAprovacaoService {
 		$em->flush();
 		return $certificadoAprovacao;
 	}
-        
+
 	/**Atualização de registro no dd
 	* @param $id do Objeto/Registro a ser alterado
         * @param $data contendo dados a serem inseridos
@@ -72,22 +74,22 @@ class CertificadoAprovacaoService {
 		$em->flush();
 		return $certificadoAprovacao;
 	}
-        
+
 	//Retorna todos os registros da entidade
 	public function fetchAll($em){
-            
+
             require_once(APPPATH . "models/Entity/CertificadoAprovacao.php");
 		$repo = $em->getRepository(\Entity\CertificadoAprovacao);
 		return $repo->findAll();
 	}
-        
+
 	/**Procura e retorna o registro do id que foi passado, se houver
 	* @param $id do Objeto/Registro a ser alterado
 	* @param $em entity manager do Doctrine
 	* @return $certificadoAprovacao Objeto do tipo CertificadoAprovacao, se houver
 	*/
 	public function find($id, $em){
-            $repo = $em->getRepository(CertificadoAprovacao::class);
+            $repo = $em->getRepository('Entity\CertificadoAprovacao');
             return $repo->find($id);
 	}
 

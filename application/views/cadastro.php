@@ -1,3 +1,4 @@
+<script src="<?=base_url("assets/js/Cadastro.js") ?>"></script>
 <div class="cadastro">
 	<div class="titulo">
 		<h4>Cadastre-se para ter acesso a mais funcionalidades que o QualEPI tem a oferecer!</h4>
@@ -58,7 +59,7 @@
 				</div>
 			</div>
 			<div class="form-group offset-md-4" id="botoesForm">
-				<button type="button" class="btn btn-success" id="btnCadastrar">Enviar</button>
+				<button type="button" class="btn btn-success" id="btnCadastrar" form="cadastroUsuario">Enviar</button>
 				<button type="button" class="btn btn-warning" id="btnLimpar">Limpar</button>
 			</div>
 		</div>

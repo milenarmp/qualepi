@@ -3,6 +3,7 @@ namespace Entity;
 use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity @ORM\Table(name="usuario")
+* @ORM\Entity(repositoryClass="Repository\UsuarioRepository")
 **/
 class Usuario {
 	/**
@@ -28,19 +29,9 @@ class Usuario {
 	*/
 	private $email;
 	/**
-	* @ORM\Column(type="boolean", name="excluido_usuario")
+	* @ORM\Column(type="boolean", name="excluido_usuario", nullable=true)
 	**/
 	private $eExcluido;
-	/**
-    * Um usuário possuí diversos comentários.
-    * @ORM\OneToMany(targetEntity="Comentario", mappedBy="usuario")
-    */
-	private $Comentario;
-	/**
-    * Um usuário possuí diversos favoritos.
-    * @ORM\OneToMany(targetEntity="Favorito", mappedBy="usuario")
-    */
-	private $Favorito;
 
 	public function getId(){
 		return $this->id;

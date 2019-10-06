@@ -4,7 +4,7 @@ namespace Entity;
 use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Table(name="ca")
-* @ORM\Entity(repositoryClass=”models\Repository\CertificadoAprovacao”)
+* @ORM\Entity(repositoryClass="Repository\CertificadoAprovacaoRepository")
 **/
 class CertificadoAprovacao {
 	/**

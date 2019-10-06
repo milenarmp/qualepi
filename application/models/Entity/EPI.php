@@ -4,6 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
 * @ORM\Entity @ORM\Table(name="epi")
+* @ORM\Entity(repositoryClass="Repository\EPIRepository")
 **/
 class EPI {
 	/**

@@ -22,7 +22,7 @@ class EPIController extends CI_Controller{
 	public function index(){
 		$this->load->view('head', array('tituloPagina' => "Início"));
 		$this->load->view('header');
-                $this->load->view('manterEPI');
+        $this->load->view('manterEPI');
 		$this->load->view('footer');
 	}
 
@@ -66,7 +66,7 @@ class EPIController extends CI_Controller{
                                 $dadosEPI = array(
                                     'certificadoAprovacao' => $certificadoAprovacao);
                                 $this->EPIService->insert($dadosEPI, $this->em);
-                             $contador++;   
+                             $contador++;
                             }
 			}
 		}

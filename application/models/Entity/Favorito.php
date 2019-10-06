@@ -4,6 +4,7 @@ namespace Entity;
 use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity @ORM\Table(name="favorito")
+* @ORM\Entity(repositoryClass="Repository\FavoritoRepository")
 **/
 class Favorito {
 	/**
@@ -12,17 +13,18 @@ class Favorito {
 	* @ORM\GeneratedValue
 	*/
 	private $id;
-	/**
-    * @ORM\ManyToOne(targetEntity="EPI")
-    * @ORM\JoinColumn(name="epi_id", referencedColumnName="id")
-    */
-	private $EPI;
     /**
-     * Diversos favoritos possuem um usuário.
-     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="Favorito")
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     * Um comentário possuí um usuário.
+     * @ORM\OneToOne(targetEntity="Usuario")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id_usuario")
      */
     private $Usuario;
+    /**
+     * Um comentário possuí um EPI.
+     * @ORM\OneToOne(targetEntity="EPI")
+     * @ORM\JoinColumn(name="epi_id", referencedColumnName="id_epi")
+     */
+	private $EPI;
 
 	public function getId(){
 		return $this->id;
