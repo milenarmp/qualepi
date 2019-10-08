@@ -22,4 +22,13 @@ class UsuarioService {
 		$em->flush();
 		return $usuario;
 	}
+	/**Procura e retorna o registro do parametro que foi passado, se houver
+	* @param $campo criterio
+	* @param $em entity manager do Doctrine
+	* @return $usuario Objeto do tipo Usuario, se houver
+	*/
+	public function findOneBy($campo, $em){
+        $repo = $em->getRepository('Entity\Usuario');
+        return $repo->findOneBy($campo);
+	}
 }

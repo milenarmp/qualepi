@@ -2,7 +2,7 @@ $(document).ready(function(){
   $("#btnCadastrar").click(function(){
     var dados = JSON.stringify($("#cadastroUsuario").serializeArray());
     $.ajax({
-            url: "UsuarioController/cadastrar",
+            url: "cadastrar",
             dataType: "json",
             type: "POST",
             data: {'dados':dados},

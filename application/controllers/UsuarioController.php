@@ -17,9 +17,9 @@ class UsuarioController extends CI_Controller{
 	}
 
 	/**
- 	* Método index da classe, renderiza a visão
+ 	* Método Cadastro da classe, renderiza a visão de cadastro
 	*/
-	public function index(){
+	public function cadastro(){
 		$this->load->view('head', array('tituloPagina' => "Cadastro"));
 		$this->load->view('header');
 		$this->load->view('cadastro');
@@ -27,9 +27,8 @@ class UsuarioController extends CI_Controller{
 	}
 
 	/**
- 	* Cadastra um novo usuário na base de dados
+ 	* Cadastra um novo usuário na base de dados via POST
  	* @return array Json
- 	* @param  $dados Array contendo as informações cadastrais
 	*/
 	public function cadastrar(){
 		$dadosUsuario = json_decode($_POST['dados'],true);
@@ -49,6 +48,30 @@ class UsuarioController extends CI_Controller{
                 'msg' => 'Erro! Usuário não cadastrado no sistema.'
             );
             echo json_encode($retorno);
+		}
+	}
+
+	/**
+ 	* Método Login da classe, renderiza a visão de login
+	*/
+	public function login(){
+		$this->load->view('head', array('tituloPagina' => "Login"));
+		$this->load->view('header');
+		$this->load->view('login');
+		$this->load->view('footer');
+	}
+	/**
+ 	* Verifica as informações cadastrais e autoriza ou não o login
+ 	* @return array Json
+	*/
+	public function logar(){
+		echo 'teste';
+		$dadosLogin = json_decode($_POST['dados'],true);
+		$usuario = $this->UsuarioService->findOneBy($dados['nomeUsuario'], $this->$em);
+		if(is_object($usuario)){
+			if($usuario->getSenha() == $dados['senha']){
+
+			}
 		}
 	}
 }

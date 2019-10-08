@@ -38,7 +38,7 @@ class EPIController extends CI_Controller{
 			$registro = explode("|", $linha);
 			$data = "$registro[1]";
 			$data1 = implode("/", array_reverse(explode("/", $data)));
-                        $dataFormatada = $this->teste($data1);
+                        $dataFormatada = $this->formataData($data1);
 			$dados = array('id_ca' => $registro[0],
                                 'numero_ca' => $registro[0],
 				'data_validade_ca' => $dataFormatada,
@@ -60,14 +60,12 @@ class EPIController extends CI_Controller{
 				'nr_laudo_ca' => $registro[17],
 				'norma_ca' => $registro[18]);
 			if($registro[2] != 'VENCIDO'){
-                            if(!is_object($this->CertificadoAprovacaoService->find($registro[0], $this->em))){
-                                $certificadoAprovacao = $this->CertificadoAprovacaoService->insert($dados, $this->em);
-                                var_dump($certificadoAprovacao);
-                                $dadosEPI = array(
-                                    'certificadoAprovacao' => $certificadoAprovacao);
-                                $this->EPIService->insert($dadosEPI, $this->em);
-                             $contador++;
-                            }
+                if(!is_object($this->CertificadoAprovacaoService->find($registro[0], $this->em))){
+                        $certificadoAprovacao = $this->CertificadoAprovacaoService->insert($dados, $this->em);
+                        $dadosEPI = array('certificadoAprovacao' => $certificadoAprovacao);
+                        $this->EPIService->insert($dadosEPI, $this->em);
+                        $contador++;
+                }
 			}
 		}
 		fclose($arq);
@@ -78,7 +76,7 @@ class EPIController extends CI_Controller{
             echo json_encode($retorno);
  	}
 
-        public function teste($data){
+        public function formataData($data){
             return date("Y/m/d", strtotime($data));
         }
 }
