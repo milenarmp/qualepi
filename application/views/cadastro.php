@@ -66,4 +66,12 @@
 	</form>
 </div>
 </div>
+  <div class="alert alert-success alert-dismissible fade in" id="sucesso">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Successo!</strong> Usuário cadastrado no sistema.
+  </div>
+  <div class="alert alert-danger alert-dismissible fade in" id="falha">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Erro!</strong> Usuário não cadastrado no sistema.
+  </div>
 </div>

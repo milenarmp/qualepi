@@ -10,7 +10,7 @@ $(document).ready(function(){
                     $("h4").html('erro');
             },
             success: function(){
-                   alert("kakakak");
+                   alert("");
             }
         });
     });

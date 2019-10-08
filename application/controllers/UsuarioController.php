@@ -39,15 +39,9 @@ class UsuarioController extends CI_Controller{
 		$usuario = $this->UsuarioService->insert($dados, $this->em);
 
 		if(is_object($usuario)){
-			$retorno = array(
-                'msg' => 'Sucesso! Usuário cadastrado no sistema.'
-            );
-            echo json_encode($retorno);
+            return true;
 		}else{
-			$retorno = array(
-                'msg' => 'Erro! Usuário não cadastrado no sistema.'
-            );
-            echo json_encode($retorno);
+            return false;
 		}
 	}
 
