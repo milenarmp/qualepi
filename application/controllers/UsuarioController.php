@@ -60,12 +60,12 @@ class UsuarioController extends CI_Controller{
 		$this->load->view('login');
 		$this->load->view('footer');
 	}
+
 	/**
  	* Verifica as informações cadastrais e autoriza ou não o login
  	* @return array Json
 	*/
 	public function logar(){
-		echo 'teste';
 		$dadosLogin = json_decode($_POST['dados'],true);
 		$usuario = $this->UsuarioService->findOneBy($dados['nomeUsuario'], $this->$em);
 		if(is_object($usuario)){
