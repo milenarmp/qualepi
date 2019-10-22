@@ -69,14 +69,41 @@ class EPIController extends CI_Controller{
 			}
 		}
 		fclose($arq);
-            $retorno = array(
-                'registros' => $contador,
-                'msg' => 'Sucesso! Quantidade de EPIs cadastrados: '
-            );
-            echo json_encode($retorno);
+        $retorno = array(
+            'registros' => $contador,
+            'msg' => 'Sucesso! Quantidade de EPIs cadastrados: '
+        );
+        echo json_encode($retorno);
  	}
 
-        public function formataData($data){
-            return date("Y/m/d", strtotime($data));
-        }
+    public function formataData($data){
+        return date("Y/m/d", strtotime($data));
+    }
+
+    public function visualizarEPI(){
+    	$dados = json_decode($_POST['dados'],true);
+    	$EPI = $this->EPIService->find($dados['id'], $em);
+    }
+
+    public function pesquisarEPIs(){
+//    	$dados = json_decode($_GET['dados'],true);
+		$EPIs = $this->EPIService->pesquisarEPI($this->input->post('termo'), $this->em);
+		$retornoEPI = [];
+		foreach($EPIs as $epi){
+			$retornoEPI[] = [
+				'numeroCA' => $epi->getCertificadoAprovacao()->getId(),
+				'nome' => $epi->getCertificadoAprovacao()->getNome(),
+				'dataValidade' => $epi->getCertificadoAprovacao()->getDataValidade(),
+				'aprovadoPara' => $epi->getCertificadoAprovacao()->getAprovadoPara()
+			];
+		}
+		$this->load->view('head', array('tituloPagina' => "Início"));
+		$this->load->view('header');
+		$this->load->view('pesquisarEPIs', array('epis' => $retornoEPI));
+		$this->load->view('footer');
+		$retorno = array(
+            'msg' => ''
+        );
+        echo json_encode($retorno);
+	}
 }

@@ -27,10 +27,4 @@
 	</form>
 </div>
 </div>
-	<div class="alert alert-success" role="alert" id="sucesso">
-  		A simple success alert—check it out!
-	</div>
-	<div class="alert alert-danger" role="alert" id="falha">
-  		A simple danger alert—check it out!
-	</div>
 </div>

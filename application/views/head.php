@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->helper('url');
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -18,6 +17,22 @@ $this->load->helper('url');
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="<?=base_url("css/style.css") ?>">
+    <link rel="stylesheet" href="<?=base_url("css/barraLateral.css") ?>">
 	<link rel="stylesheet" href="<?=base_url("assets/DataTables/datatables.min.css") ?>">
+	<script src="<?=base_url("assets/js/datatable.js") ?>"></script>
 	<script src="<?=base_url("assets/DataTables/datatables.min.js") ?>"></script>
+	<link rel="stylesheet" href="<?=base_url("css/font-awesome.min.css") ?>">
+	<script>
+		$(document).ready(function(){
+    		$("#btnBuscar").click(function(){
+    		var termo = $('#termo').val();
+    		$.ajax({
+        		type:'POST',
+        	data:{termo: termo},
+        	url:'<?php echo site_url('EPIController/pesquisarEPIs'); ?>'
+        });
+    });
+});
+
+	</script>
   </head>

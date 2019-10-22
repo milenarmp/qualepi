@@ -12,6 +12,7 @@ class UsuarioController extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('doctrine');
+		$this->load->library('session');
 		$this->em = $this->doctrine->em;
 		$this->load->model('Service\UsuarioService', 'UsuarioService');
 	}
@@ -64,7 +65,6 @@ class UsuarioController extends CI_Controller{
 		$usuario = $this->UsuarioService->findOneBy($dados['nomeUsuario'], $this->$em);
 		if(is_object($usuario)){
 			if($usuario->getSenha() == $dados['senha']){
-
 			}
 		}
 	}

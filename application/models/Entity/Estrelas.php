@@ -1,26 +1,33 @@
 <?php
 namespace Entity;
-//defined('BASEPATH') OR exit('No direct script access allowed');
 use Doctrine\ORM\Mapping as ORM;
+
 /**
-* @ORM\Entity @ORM\Table(name="favorito")
-* @ORM\Entity(repositoryClass="Repository\FavoritoRepository")
+* @ORM\Entity @ORM\Table(name="estrela")
+* @ORM\Entity(repositoryClass="Repository\EstrelasRepository")
 **/
-class Favorito {
+class Estrelas {
 	/**
 	* @ORM\Id
-	* @ORM\Column(type="integer", name="id_favorito")
+	* @ORM\Column(type="integer", name="id_estrela")
 	* @ORM\GeneratedValue
 	*/
 	private $id;
+
+	/**
+	* @ORM\Column(type="integer", name="qtde_estrela")
+	*/
+	private $qtde;
+
     /**
-     * Um favorito possuí um usuário.
+     * Um comentário possuí um usuário.
      * @ORM\OneToOne(targetEntity="Usuario")
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id_usuario")
      */
     private $Usuario;
-    /**
-     * Um favorito possuí um EPI.
+
+	/**
+     * Um registro de estrela possuí um EPI.
      * @ORM\OneToOne(targetEntity="EPI")
      * @ORM\JoinColumn(name="epi_id", referencedColumnName="id_epi")
      */
@@ -28,13 +35,5 @@ class Favorito {
 
 	public function getId(){
 		return $this->id;
-	}
-
-	public function getEPI(){
-		return $this->EPI;
-	}
-
-	public function setEPI($EPI){
-		$this->EPI = $EPI;
 	}
 }
