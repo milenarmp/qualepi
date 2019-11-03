@@ -1,16 +1,24 @@
-$(document).ready(function(){
-    $("#btnBuscar").click(function(){
-//    var dados = JSON.stringify($("#formPesquisa").serializeArray());
-    $.ajax({
-            url: "pesquisarEPIs",
-            dataType: "json",
-            type: "GET",
-            error: function(){
-                $('#falha').show()
-            },
-            success: function(){
-                $('#sucesso').show()
-            }
-        });
+    $(document).ready(function(){
+        $('#btnBuscar').click(function(){
+
+        var pesquisa = $('#pesquisa').val();
+            $.post("/qualepi/index.php/EPIController/pesquisarEPIs", { 'pesquisa' : pesquisa},
+                function(data){
+                    $('#pesquisarEPIs').DataTable({
+                        data : data.EPI,
+                        columns: [
+                            { data: 'numeroCA' },
+                            { data: 'nome' },
+                            { data: 'dataValidade' },
+                            { data: 'aprovadoPara' }
+                        ]
+                    });
+                    window.$("#meuModal").modal("show");
+                }, "json");
+    });
+
+    window.$('#meuModal').on('hidden.bs.modal', function (e) {
+        var table = $('#pesquisarEPIs').DataTable();
+        table.destroy();
     });
 });

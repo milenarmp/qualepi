@@ -24,16 +24,5 @@ class Tester extends CI_Controller{
 		$this->load->view('footer');
 	}
 
-	public function pesquisarEPIs(){
-		$this->load->view('head', array('tituloPagina' => "Teste"));
-		$this->load->view('header');
-		$EPI = $this->EPIService->find('1', $this->em);
-        $numeroCA = $EPI->getCertificadoAprovacao()->getId();
-        $nome = $EPI->getCertificadoAprovacao()->getNome();
-        $dataValidade = $EPI->getCertificadoAprovacao()->getDataValidade();
-        $aprovadoPara = $EPI->getCertificadoAprovacao()->getAprovadoPara();
-		$this->load->view('pesquisarEPIs', array('numeroCA' => $numeroCA, 'nome' => $nome, 'dataValidade' => $dataValidade, 'aprovadoPara' => $aprovadoPara));
-		$this->load->view('footer');
-	}
 
 }

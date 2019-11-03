@@ -8,7 +8,7 @@
     		Login
   		</div>
   	<div class="card-body">
-	<form id="loginUsuario">
+	<form id="loginUsuario" method="POST">
 		<div class="form-group offset-md-3">
 			<div class="row linha">
 				<div class="col-md-3 col-lg-8 col-sm-8">

@@ -20,14 +20,13 @@
 				<span class="navbar-text">Cadastro | Login </span>
 			</nav><!-- fim da barra de navegação -->
 			<div>
-				<form id="formPesquisa" method="GET">
 					<div class="form-group">
 						<div class="row">
 						<div class="col-md-5 col-lg-5 col-sm-8 offset-md-1">
-							<input type="text" class="form-control" id="pesquisa" placeholder="&#xF002;" form="formPesquisa">
+							<input type="text" class="form-control" id="pesquisa" placeholder="&#xF002;" >
 						</div>
 							<div class="col-md-1 col-lg-1 col-sm-4">
-								<button type="submit" id="btnBuscar" class="btn btn-success btn-sm" form="formPesquisa">Buscar</button>
+								<button type="submit" id="btnBuscar" class="btn btn-success btn-sm">Buscar</button>
 							</div>
 					</div>
 					</div>
@@ -46,3 +45,46 @@
 				</form>
 			</div>
 		</div>
+
+	<div id="meuModal" class="modal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Pesquisa de EPIs</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	<div id="tabs">
+    <ul><li><a href="#tabs-1">EPIs</a></li></ul>
+    <div id="tabs-1">
+        <input type="button" name="novo" value="Novo" onclick="location.href =
+ 'index.php?pg=usuario/cad_usuario&acao=inserir'" /><br /><br />
+        <table class="display" id="pesquisarEPIs">
+            <thead>
+                <tr>
+                    <th>Nº CA</th>
+                    <th>Nome</th>
+                    <th>Validade</th>
+                    <th>Aprovado para:</th>
+<!--                     <th>Visualizar:</th> -->
+                </tr>
+            </thead>
+            <tbody id="teste">
+            </tbody>
+        	</table>
+    		</div><!-- div tabs-1 -->
+		</div><!-- div tabs -->
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+
+

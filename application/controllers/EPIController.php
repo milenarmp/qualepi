@@ -73,6 +73,7 @@ class EPIController extends CI_Controller{
             'registros' => $contador,
             'msg' => 'Sucesso! Quantidade de EPIs cadastrados: '
         );
+        header('Content-type: application/json');
         echo json_encode($retorno);
  	}
 
@@ -81,29 +82,38 @@ class EPIController extends CI_Controller{
     }
 
     public function visualizarEPI(){
-    	$dados = json_decode($_POST['dados'],true);
-    	$EPI = $this->EPIService->find($dados['id'], $em);
+    	$CA = $this->CertificadoAprovacaoService->find('38279', $this->em);
+    	$EPI = $this->EPIService->findBy(array('CertificadoAprovacao' => $CA->getId()), $this->em);
+    	$retorno = array(
+    		'nomeEPI' => $CA->getNome(),
+    		'situacao' => $CA->getSituacao(),
+    		'caEPI' => $CA->getId()
+    	);
+    	$this->load->view('head', array('tituloPagina' => "Visualizar EPI"));
+    	$this->load->view('header');
+    	$this->load->view('visualizarEPI', array('retorno' => $retorno));
+    	$this->load->view('footer');
     }
 
     public function pesquisarEPIs(){
-//    	$dados = json_decode($_GET['dados'],true);
-		$EPIs = $this->EPIService->pesquisarEPI($this->input->post('termo'), $this->em);
+    	$pesquisa = trim($this->input->post('pesquisa'),true);
+
+		$EPIs = $this->EPIService->pesquisarEPI($pesquisa, $this->em);
 		$retornoEPI = [];
-		foreach($EPIs as $epi){
-			$retornoEPI[] = [
-				'numeroCA' => $epi->getCertificadoAprovacao()->getId(),
-				'nome' => $epi->getCertificadoAprovacao()->getNome(),
-				'dataValidade' => $epi->getCertificadoAprovacao()->getDataValidade(),
-				'aprovadoPara' => $epi->getCertificadoAprovacao()->getAprovadoPara()
-			];
-		}
-		$this->load->view('head', array('tituloPagina' => "Início"));
-		$this->load->view('header');
-		$this->load->view('pesquisarEPIs', array('epis' => $retornoEPI));
-		$this->load->view('footer');
-		$retorno = array(
-            'msg' => ''
-        );
-        echo json_encode($retorno);
+		 foreach($EPIs as $epi){
+		 	$ca = $this->CertificadoAprovacaoService->find($epi[0]->getCertificadoAprovacao()->getId(), $this->em);
+		 	$retornoEPI[] = [
+		 		'numeroCA' => $ca->getId(),
+		 		'nome' => $ca->getNome(),
+		 		'dataValidade' => $ca->getDataValidade(),
+		 		'aprovadoPara' => $ca->getAprovadoPara()
+		 	];
+		 }
+
+		 $retorno = array(
+             'EPI' => $retornoEPI
+         );
+         header('Content-type: application/json');
+         echo json_encode($retorno);
 	}
 }
