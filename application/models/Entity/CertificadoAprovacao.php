@@ -29,7 +29,7 @@ class CertificadoAprovacao {
 	*/
 	private $cnpjLaboratorio;
 	/**
-	* @ORM\Column(type="string",length=255, name="referencia_ca")
+	* @ORM\Column(type="string",length=1000, name="referencia_ca")
 	*/
 	private $referencia;
 	/**
@@ -37,31 +37,31 @@ class CertificadoAprovacao {
 	*/
 	private $nrLaudo;
 	/**
-	* @ORM\Column(type="string", length=255, name="norma_ca")
+	* @ORM\Column(type="string", length=1000, name="norma_ca")
 	**/
 	private $norma;
 	/**
-	* @ORM\Column(type="string", length=255, name="razao_social_ca")
+	* @ORM\Column(type="string", length=1000, name="razao_social_ca")
 	**/
 	private $razaoSocial;
 	/**
-	* @ORM\Column(type="string", length=255, name="razao_social_laboratorio_ca")
+	* @ORM\Column(type="string", length=1000, name="razao_social_laboratorio_ca")
 	**/
 	private $razaoSocialLaboratorio;
 	/**
-	* @ORM\Column(type="string", length=255, name="natureza_ca")
+	* @ORM\Column(type="string", length=1000, name="natureza_ca")
 	**/
 	private $natureza;
 	/**
-	* @ORM\Column(type="string", length=255, name="nome_ca")
+	* @ORM\Column(type="string", length=1000, name="nome_ca")
 	**/
 	private $nome;
 	/**
-	* @ORM\Column(type="string", length=255, name="cor_ca", nullable=true)
+	* @ORM\Column(type="string", length=1000, name="cor_ca", nullable=true)
 	**/
 	private $cor;
 	/**
-	* @ORM\Column(type="string", length=255, name="restrito_para_ca")
+	* @ORM\Column(type="string", length=1000, name="restrito_para_ca")
 	**/
 	private $restritoPara;
 	/**
@@ -69,23 +69,23 @@ class CertificadoAprovacao {
 	**/
 	private $dataValidade;
 	/**
-	* @ORM\Column(type="string", length=255, name="descricao_ca")
+	* @ORM\Column(type="string", length=1000, name="descricao_ca")
 	**/
 	private $descricao;
 	/**
-	* @ORM\Column(type="string", length=255, name="aprovado_para_ca")
+	* @ORM\Column(type="string", length=1000, name="aprovado_para_ca")
 	**/
 	private $aprovadoPara;
 	/**
-	* @ORM\Column(type="string", length=255, name="marca_ca")
+	* @ORM\Column(type="string", length=1000, name="marca_ca")
 	**/
 	private $marca;
 	/**
-	* @ORM\Column(type="string", length=255, name="situacao_ca")
+	* @ORM\Column(type="string", length=1000, name="situacao_ca")
 	**/
 	private $situacao;
 	/**
-	* @ORM\Column(type="string", length=255, name="observacoes_ca", nullable=true)
+	* @ORM\Column(type="string", length=1000, name="observacoes_ca", nullable=true)
 	**/
 	private $observacoes;
 	/**

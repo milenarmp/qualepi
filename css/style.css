@@ -104,7 +104,7 @@ html, body {
 }
 /*Fim do cadastro*/
 
-/*Fim do login*/
+/*Começo do login*/
 #nomeUsuario{
 	text-align: center;
 }
@@ -118,4 +118,23 @@ html, body {
 }
 #botaoLogin {
 	margin-top: 20px;
+}
+/*Fim do login*/
+
+/*Começo do visualizarEPIs*/
+.rotulo {
+	color: white;
+	text-shadow: 2px 2px black;
+}
+
+#visao {
+	margin-bottom: 30px;
+}
+
+#botao1 {
+	margin-right: 15px;
+}
+
+#comentario {
+	background-color: white;
 }

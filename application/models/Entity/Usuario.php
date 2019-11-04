@@ -46,7 +46,7 @@ class Usuario {
 	}
 
 	public function getLogin(){
-		return $this->nome;
+		return $this->login;
 	}
 
 	public function setLogin($login){
@@ -54,7 +54,7 @@ class Usuario {
 	}
 
 	public function getSenha(){
-		return $this->nome;
+		return $this->senha;
 	}
 
 	public function setSenha($senha){

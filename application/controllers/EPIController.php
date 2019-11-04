@@ -13,6 +13,7 @@ class EPIController extends CI_Controller{
 		parent::__construct();
 		$this->load->library('doctrine');
 		$this->em = $this->doctrine->em;
+		$this->load->library('session');
 		$this->load->model('Service\CertificadoAprovacaoService', 'CertificadoAprovacaoService');
 		$this->load->model('Service\EPIService', 'EPIService');
 	}
@@ -81,13 +82,20 @@ class EPIController extends CI_Controller{
         return date("Y/m/d", strtotime($data));
     }
 
-    public function visualizarEPI(){
-    	$CA = $this->CertificadoAprovacaoService->find('38279', $this->em);
+    public function visualizarEPI($CA){
+    	$CA = $this->CertificadoAprovacaoService->find($CA, $this->em);
     	$EPI = $this->EPIService->findBy(array('CertificadoAprovacao' => $CA->getId()), $this->em);
     	$retorno = array(
     		'nomeEPI' => $CA->getNome(),
     		'situacao' => $CA->getSituacao(),
-    		'caEPI' => $CA->getId()
+    		'caEPI' => $CA->getId(),
+    		'aprovadoPara' => mb_strtolower($CA->getAprovadoPara()),
+    		'observacoes' => $CA->getObservacoes(),
+    		'dataValidade' => $this->dataParaString($CA->getDataValidade()),
+    		'fabricante' => $CA->getRazaoSocial(),
+    		'natureza' => $CA->getNatureza(),
+    		'restritoPara' => mb_strtolower($CA->getRestritoPara()),
+    		'descricao' => mb_strtolower($CA->getDescricao())
     	);
     	$this->load->view('head', array('tituloPagina' => "Visualizar EPI"));
     	$this->load->view('header');
@@ -105,8 +113,9 @@ class EPIController extends CI_Controller{
 		 	$retornoEPI[] = [
 		 		'numeroCA' => $ca->getId(),
 		 		'nome' => $ca->getNome(),
-		 		'dataValidade' => $ca->getDataValidade(),
-		 		'aprovadoPara' => $ca->getAprovadoPara()
+		 		'dataValidade' => $this->dataParaString($ca->getDataValidade()),
+		 		'aprovadoPara' => mb_strtolower($ca->getAprovadoPara()),
+		 		'visualizar' => '<a href="http://localhost/qualepi/index.php/EPIController/visualizarEPI/'.$ca->getId().'" target="_blank">Mais detalhes</a>',
 		 	];
 		 }
 
@@ -115,5 +124,9 @@ class EPIController extends CI_Controller{
          );
          header('Content-type: application/json');
          echo json_encode($retorno);
+	}
+
+	public function dataParaString($data){
+		return date_format($data, 'd/m/y');
 	}
 }

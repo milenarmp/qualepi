@@ -8,9 +8,6 @@
 						<a class="navbar-link" href="#"><span class="barraNavegacao">Início</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="navbar-link" href="#"><span class="barraNavegacao">Pesquisar EPIs</span></a>
-					</li>
-					<li class="nav-item">
 						<a class="navbar-link" href="#"><span class="barraNavegacao">Sobre Nós</span></a>
 					</li>
 					<li class="nav-item">
@@ -47,7 +44,7 @@
 		</div>
 
 	<div id="meuModal" class="modal" tabindex="-1" role="dialog">
-	  <div class="modal-dialog" role="document">
+	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h5 class="modal-title">Pesquisa de EPIs</h5>
@@ -56,30 +53,22 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	<div id="tabs">
-    <ul><li><a href="#tabs-1">EPIs</a></li></ul>
-    <div id="tabs-1">
-        <input type="button" name="novo" value="Novo" onclick="location.href =
- 'index.php?pg=usuario/cad_usuario&acao=inserir'" /><br /><br />
-        <table class="display" id="pesquisarEPIs">
+        <table class="display" id="pesquisarEPIs" style="width: 100%">
             <thead>
                 <tr>
                     <th>Nº CA</th>
                     <th>Nome</th>
                     <th>Validade</th>
                     <th>Aprovado para:</th>
-<!--                     <th>Visualizar:</th> -->
+                    <th>Visualizar:</th>
                 </tr>
             </thead>
             <tbody id="teste">
             </tbody>
         	</table>
-    		</div><!-- div tabs-1 -->
-		</div><!-- div tabs -->
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-	        <button type="button" class="btn btn-primary">Salvar mudanças</button>
 	      </div>
 	    </div>
 	  </div>

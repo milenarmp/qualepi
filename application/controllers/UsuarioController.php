@@ -61,11 +61,30 @@ class UsuarioController extends CI_Controller{
  	* @return array Json
 	*/
 	public function logar(){
-		$dadosLogin = json_decode($_POST['dados'],true);
-		$usuario = $this->UsuarioService->findOneBy($dados['nomeUsuario'], $this->$em);
+		$dadosLogin['login'] = trim($this->input->post('nomeUsuario'),true);
+		$dadosLogin['senha'] = trim($this->input->post('senha'),true);
+		$usuario = $this->UsuarioService->findOneBy($dadosLogin, $this->em);
 		if(is_object($usuario)){
-			if($usuario->getSenha() == $dados['senha']){
+			if($usuario->getSenha() == $dadosLogin['senha']){
+				$dadosSessao = array(
+                   'nomeUsuario' => $usuario->getLogin(),
+                   'logado' => TRUE,
+                   'idUsuario' => $usuario->getId()
+               	);
+				$this->session->set_userdata($dadosSessao);
 			}
 		}
+	}
+
+	public function checaLogin(){
+		if($this->session->userdata('logado')){
+			return true;
+		} else{
+			return false;
+		}
+	}
+
+	public function sair(){
+		$this->session->sess_destroy();
 	}
 }
