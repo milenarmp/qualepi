@@ -24,6 +24,11 @@ class EPI {
 	**/
 	private $eExcluido;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Favorito", mappedBy="id_favorito")
+     */
+    protected $Favorito;
+
 	public function getId(){
 		return $this->id;
 	}

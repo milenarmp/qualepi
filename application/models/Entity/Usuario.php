@@ -1,6 +1,7 @@
 <?php
 namespace Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 /**
 * @ORM\Entity @ORM\Table(name="usuario")
 * @ORM\Entity(repositoryClass="Repository\UsuarioRepository")
@@ -32,6 +33,12 @@ class Usuario {
 	* @ORM\Column(type="boolean", name="excluido_usuario", nullable=true)
 	**/
 	private $eExcluido;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Favorito", mappedBy="id_favorito")
+     */
+    protected $Favorito;
+
 
 	public function getId(){
 		return $this->id;

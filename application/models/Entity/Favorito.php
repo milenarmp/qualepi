@@ -14,17 +14,16 @@ class Favorito {
 	*/
 	private $id;
     /**
-     * Um favorito possuí um usuário.
-     * @ORM\OneToOne(targetEntity="Usuario")
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id_usuario")
-     */
-    private $Usuario;
-    /**
-     * Um favorito possuí um EPI.
-     * @ORM\OneToOne(targetEntity="EPI")
-     * @ORM\JoinColumn(name="epi_id", referencedColumnName="id_epi")
+     * @ORM\ManyToOne(targetEntity="EPI", inversedBy="id_favorito")
+     * @ORM\JoinColumn(nullable=false)
      */
 	private $EPI;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="id_favorito")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected $Usuario;
 
 	public function getId(){
 		return $this->id;
@@ -36,5 +35,13 @@ class Favorito {
 
 	public function setEPI($EPI){
 		$this->EPI = $EPI;
+	}
+
+	public function getUsuario(){
+		return $this->Usuario;
+	}
+
+	public function setUsuario($Usuario){
+		$this->Usuario = $Usuario;
 	}
 }

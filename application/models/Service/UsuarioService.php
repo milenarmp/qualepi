@@ -22,6 +22,18 @@ class UsuarioService {
 		$em->flush();
 		return $usuario;
 	}
+
+	/**Procura e retorna o registro do id que foi passado, se houver
+	* @param $id do Objeto/Registro
+	* @param $em entity manager do Doctrine
+	* @return $usuario Objeto do tipo Usuario, se houver
+	*/
+	public function find($id, $em){
+        $repo = $em->getRepository('Entity\Usuario');
+        return $repo->find($id);
+	}
+
+
 	/**Procura e retorna o registro do parametro que foi passado, se houver
 	* @param $campo criterio
 	* @param $em entity manager do Doctrine
