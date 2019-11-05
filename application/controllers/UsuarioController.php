@@ -87,4 +87,11 @@ class UsuarioController extends CI_Controller{
 	public function sair(){
 		$this->session->sess_destroy();
 	}
+
+	public function teste(){
+		$this->load->view('head', array('tituloPagina' => "Página Inicial"));
+		$this->load->view('header');
+		$this->load->view('login');
+		$this->load->view('footer');
+	}
 }

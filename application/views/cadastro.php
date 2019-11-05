@@ -15,7 +15,7 @@
 					<label for="nome">Nome completo:</label>
 				</div>
 				<div class="col-md-3 col-lg-6 col-sm-8">
-					<input type="text" class="form-control" id="nome" name="nome" form="cadastroUsuario">
+					<input type="text" class="form-control" id="nome" name="nome" form="cadastroUsuario" required="required">
 				</div>
 			</div>
 			<div class="row linha">
@@ -31,7 +31,7 @@
 					<label for="email">E-mail:</label>
 				</div>
 				<div class="col-md-3 col-lg-6 col-sm-8">
-					<input type="text" class="form-control" id="email" name="email" form="cadastroUsuario">
+					<input type="email" class="form-control" id="email" name="email" form="cadastroUsuario">
 				</div>
 			</div>
 			<div class="row linha">
@@ -39,7 +39,7 @@
 					<label for="confirmacaoEmail">Confirmação de e-mail:</label>
 				</div>
 				<div class="col-md-3 col-lg-6 col-sm-8">
-					<input type="text" class="form-control" id="confirmacaoEmail" name="confirmacaoEmail" form="cadastroUsuario">
+					<input type="email" class="form-control" id="confirmacaoEmail" name="confirmacaoEmail" form="cadastroUsuario">
 				</div>
 			</div>
 			<div class="row linha">

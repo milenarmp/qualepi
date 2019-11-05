@@ -14,4 +14,8 @@ $(document).ready(function(){
             }
         });
     });
+
+    $("#btnLimpar").click(function(){
+        document.getElementById('cadastroUsuario').reset();
+    });
 });

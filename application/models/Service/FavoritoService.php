@@ -20,4 +20,9 @@ class FavoritoService {
 		$em->flush();
 		return $favorito;
 	}
+
+	public function findBy(array $criterio, $em){
+		$repo = $em->getRepository('Entity\Favorito');
+		return $repo->findBy($criterio);
+	}
 }

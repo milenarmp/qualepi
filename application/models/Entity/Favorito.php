@@ -15,13 +15,13 @@ class Favorito {
 	private $id;
     /**
      * @ORM\ManyToOne(targetEntity="EPI", inversedBy="id_favorito")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, name="epi_id")
      */
 	private $EPI;
 
     /**
      * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="id_favorito")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, name="usuario_id")
      */
     protected $Usuario;
 

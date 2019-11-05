@@ -22,7 +22,11 @@ class FavoritoController extends CI_Controller{
 
 	public function index(){
 		if($this->session->userdata('logado')){
+			$criterio = array(
+				'Usuario' => $this->UsuarioService->find($this->session->userdata('idUsuario'), $this->em)
+ 			);
 			$favoritos = $this->FavoritoService->findBy($criterio, $this->em);
+			echo count($favoritos);
 		}else{
 		$mensagem = array(
 			'titulo' => 'Ooops! Parece que você não está logado...',

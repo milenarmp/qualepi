@@ -109,6 +109,7 @@ class EPIController extends CI_Controller{
 		$EPIs = $this->EPIService->pesquisarEPI($pesquisa, $this->em);
 		$retornoEPI = [];
 		 foreach($EPIs as $epi){
+		 	if(!empty($epi)){
 		 	$ca = $this->CertificadoAprovacaoService->find($epi[0]->getCertificadoAprovacao()->getId(), $this->em);
 		 	$retornoEPI[] = [
 		 		'numeroCA' => $ca->getId(),
@@ -117,6 +118,7 @@ class EPIController extends CI_Controller{
 		 		'aprovadoPara' => mb_strtolower($ca->getAprovadoPara()),
 		 		'visualizar' => '<a href="http://localhost/qualepi/index.php/EPIController/visualizarEPI/'.$ca->getId().'" target="_blank">Mais detalhes</a>',
 		 	];
+		 	}
 		 }
 
 		 $retorno = array(

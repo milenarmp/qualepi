@@ -41,7 +41,7 @@ html, body {
 
 #buscar {
 	margin-right: -5px;
-	margin-left: 5px;
+	margin-left: 75px;
 }
 
 #btnBuscar {
@@ -105,12 +105,10 @@ html, body {
 /*Fim do cadastro*/
 
 /*Começo do login*/
-#nomeUsuario{
+.infosLogin{
 	text-align: center;
 }
-#senha{
-	text-align: center;
-}
+
 .dadosUsuarioLogin {
 	width: 45%;
 	margin-left: 27.5%;

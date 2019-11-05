@@ -35,7 +35,6 @@
 								<button type="button" class="btn btn-success btn-sm">Fabricante</button>
 								<button type="button" class="btn btn-success btn-sm">Descrição</button>
 								<button type="button" class="btn btn-success btn-sm">Risco</button>
-								<button type="button" class="btn btn-success btn-sm">Customização de Filtros</button>
 							</div>
 						</div>
 					</div>
