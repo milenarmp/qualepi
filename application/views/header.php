@@ -17,10 +17,10 @@
 				<span class="navbar-text">Cadastro | Login </span>
 			</nav><!-- fim da barra de navegação -->
 			<div>
-					<div class="form-group">
-						<div class="row">
-						<div class="col-md-5 col-lg-5 col-sm-8 offset-md-1">
-							<input type="text" class="form-control" id="pesquisa" placeholder="&#xF002;" >
+				<div class="form-group">
+					<div class="row">
+					<div class="col-md-5 col-lg-5 col-sm-8 offset-md-1">
+						<input type="text" class="form-control" id="pesquisa" placeholder="&#xF002;" >
 						</div>
 							<div class="col-md-1 col-lg-1 col-sm-4">
 								<button type="submit" id="btnBuscar" class="btn btn-success btn-sm">Buscar</button>

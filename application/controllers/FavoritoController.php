@@ -37,6 +37,7 @@ class FavoritoController extends CI_Controller{
     		$this->load->view('head', array('tituloPagina' => "Visualizar EPI"));
     		$this->load->view('header');
 			$this->load->view('favoritos', array('EPIs' => $retornoEPI));
+			$this->load->view('footer');
 		}else{
 		$mensagem = array(
 			'titulo' => 'Ooops! Parece que você não está logado...',

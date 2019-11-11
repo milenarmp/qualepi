@@ -1,4 +1,8 @@
 <script src="<?=base_url("assets/js/DataFavorito.js") ?>"></script>
+<div class="cadastro">
+	<div class="titulo">
+		<h4>Favoritos: </h4>
+	</div>
     <div>
         <table class="display" id="favoritosEPI" style="width: 100%">
             <thead>
@@ -25,3 +29,4 @@
             </tbody>
       	</table>
 	</div>
+</div>
