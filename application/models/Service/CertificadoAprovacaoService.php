@@ -104,7 +104,12 @@ class CertificadoAprovacaoService {
 		$em->remove($certificadoAprovacao);
 		return true;
 	}
-
+    /**
+    * Pesquisa o CA no banco de dados
+    * @param $termo string com o termo a ser pesquisado
+    * @param $em entity manager do Doctrine
+    * @return $certificadoAprovacao array de objetos encontrados
+    */
 	public function pesquisarCA($termo, $em){
 		$repository = $em->getRepository('Entity\CertificadoAprovacao');
        $query = $repository->createQueryBuilder('p')
@@ -114,6 +119,4 @@ class CertificadoAprovacaoService {
                ->getQuery();
 		return $query->getResult();
 	}
-
-
 }

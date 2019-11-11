@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	//Evento do botão login
     $("#btnLogin").click(function(){
         var nomeUsuario = $('#nomeUsuario').val();
         var senha = $('#senha').val();

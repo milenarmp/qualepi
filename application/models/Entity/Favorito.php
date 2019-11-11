@@ -15,16 +15,19 @@ class Favorito {
 	private $id;
     /**
      * @ORM\ManyToOne(targetEntity="EPI", inversedBy="id_favorito")
-     * @ORM\JoinColumn(nullable=false, name="epi_id")
+     * @ORM\JoinColumn(nullable=false, name="id_epi", referencedColumnName="id_epi")
      */
 	private $EPI;
 
     /**
      * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="id_favorito")
-     * @ORM\JoinColumn(nullable=false, name="usuario_id")
+     * @ORM\JoinColumn(nullable=false, name="id_usuario", referencedColumnName="id_usuario")
      */
     protected $Usuario;
 
+    /**
+    * Getters e Setters
+    */
 	public function getId(){
 		return $this->id;
 	}

@@ -13,17 +13,20 @@ class EPI {
 	* @ORM\GeneratedValue
 	*/
 	private $id;
-        /**
-        * Um EPI possui um CertificadoAprovacao
-        * @ORM\OneToOne(targetEntity="CertificadoAprovacao")
-        * @ORM\JoinColumn(name="ca_epi", referencedColumnName="id_ca")
-        */
+    /**
+    * Um EPI possui um CertificadoAprovacao
+    * @ORM\OneToOne(targetEntity="CertificadoAprovacao")
+    * @ORM\JoinColumn(name="ca_epi", referencedColumnName="id_ca")
+    */
 	private $CertificadoAprovacao;
 	/**
 	* @ORM\Column(type="boolean", name="excluido_epi")
 	**/
 	private $eExcluido;
 
+    /**
+    * Getters e Setters
+    */
 	public function getId(){
 		return $this->id;
 	}

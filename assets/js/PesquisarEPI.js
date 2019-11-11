@@ -1,6 +1,6 @@
     $(document).ready(function(){
+        //Evento do botão buscar epis
         $('#btnBuscar').click(function(){
-
         var pesquisa = $('#pesquisa').val();
             $.post("/qualepi/index.php/EPIController/pesquisarEPIs", { 'pesquisa' : pesquisa},
                 function(data){
@@ -47,7 +47,7 @@
                     window.$("#meuModal").modal("show");
                 }, "json");
     });
-
+    //Evento ao fechar modal de consulta, para destruir o datatable
     window.$('#meuModal').on('hidden.bs.modal', function (e) {
         var table = $('#pesquisarEPIs').DataTable();
         table.destroy();

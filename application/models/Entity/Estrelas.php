@@ -33,6 +33,9 @@ class Estrelas {
      */
 	private $EPI;
 
+    /**
+    * Getters e Setters
+    */
 	public function getId(){
 		return $this->id;
 	}

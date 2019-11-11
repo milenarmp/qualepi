@@ -93,171 +93,174 @@ class CertificadoAprovacao {
 	**/
 	private $eExcluido;
 
+    /**
+    * Getters e Setters
+    */
 	function getId() {
             return $this->id;
         }
 
-        function getNumero() {
+    function getNumero() {
             return $this->numero;
         }
 
-        function getNumeroProcesso() {
+    function getNumeroProcesso() {
             return $this->numeroProcesso;
         }
 
-        function getCnpj() {
+    function getCnpj() {
             return $this->cnpj;
         }
 
-        function getCnpjLaboratorio() {
+    function getCnpjLaboratorio() {
             return $this->cnpjLaboratorio;
         }
 
-        function getReferencia() {
+    function getReferencia() {
             return $this->referencia;
         }
 
-        function getNrLaudo() {
+    function getNrLaudo() {
             return $this->nrLaudo;
         }
 
-        function getNorma() {
+    function getNorma() {
             return $this->norma;
         }
 
-        function getRazaoSocial() {
+    function getRazaoSocial() {
             return $this->razaoSocial;
         }
 
-        function getRazaoSocialLaboratorio() {
+    function getRazaoSocialLaboratorio() {
             return $this->razaoSocialLaboratorio;
         }
 
-        function getNatureza() {
+    function getNatureza() {
             return $this->natureza;
         }
 
-        function getNome() {
+    function getNome() {
             return $this->nome;
         }
 
-        function getCor() {
+    function getCor() {
             return $this->cor;
         }
 
-        function getRestritoPara() {
+    function getRestritoPara() {
             return $this->restritoPara;
         }
 
-        function getDataValidade() {
+    function getDataValidade() {
             return $this->dataValidade;
         }
 
-        function getDescricao() {
+    function getDescricao() {
             return $this->descricao;
         }
 
-        function getAprovadoPara() {
+    function getAprovadoPara() {
             return $this->aprovadoPara;
         }
 
-        function getMarca() {
+    function getMarca() {
             return $this->marca;
         }
 
-        function getSituacao() {
+    function getSituacao() {
             return $this->situacao;
         }
 
-        function getObservacoes() {
+    function getObservacoes() {
             return $this->observacoes;
         }
 
-        function getEExcluido() {
+    function getEExcluido() {
             return $this->eExcluido;
         }
 
-        function setId($id) {
+    function setId($id) {
             $this->id = $id;
         }
 
-        function setNumero($numero) {
+    function setNumero($numero) {
             $this->numero = $numero;
         }
 
-        function setNumeroProcesso($numeroProcesso) {
+    function setNumeroProcesso($numeroProcesso) {
             $this->numeroProcesso = $numeroProcesso;
         }
 
-        function setCnpj($cnpj) {
+    function setCnpj($cnpj) {
             $this->cnpj = $cnpj;
         }
 
-        function setCnpjLaboratorio($cnpjLaboratorio) {
+    function setCnpjLaboratorio($cnpjLaboratorio) {
             $this->cnpjLaboratorio = $cnpjLaboratorio;
         }
 
-        function setReferencia($referencia) {
+    function setReferencia($referencia) {
             $this->referencia = $referencia;
         }
 
-        function setNrLaudo($nrLaudo) {
+    function setNrLaudo($nrLaudo) {
             $this->nrLaudo = $nrLaudo;
         }
 
-        function setNorma($norma) {
+    function setNorma($norma) {
             $this->norma = $norma;
         }
 
-        function setRazaoSocial($razaoSocial) {
+    function setRazaoSocial($razaoSocial) {
             $this->razaoSocial = $razaoSocial;
         }
 
-        function setRazaoSocialLaboratorio($razaoSocialLaboratorio) {
+    function setRazaoSocialLaboratorio($razaoSocialLaboratorio) {
             $this->razaoSocialLaboratorio = $razaoSocialLaboratorio;
         }
 
-        function setNatureza($natureza) {
+    function setNatureza($natureza) {
             $this->natureza = $natureza;
         }
 
-        function setNome($nome) {
+    function setNome($nome) {
             $this->nome = $nome;
         }
 
-        function setCor($cor) {
+    function setCor($cor) {
             $this->cor = $cor;
         }
 
-        function setRestritoPara($restritoPara) {
+    function setRestritoPara($restritoPara) {
             $this->restritoPara = $restritoPara;
         }
 
-        function setDataValidade($dataValidade) {
+    function setDataValidade($dataValidade) {
             $this->dataValidade = $dataValidade;
         }
 
-        function setDescricao($descricao) {
+    function setDescricao($descricao) {
             $this->descricao = $descricao;
         }
 
-        function setAprovadoPara($aprovadoPara) {
+    function setAprovadoPara($aprovadoPara) {
             $this->aprovadoPara = $aprovadoPara;
         }
 
-        function setMarca($marca) {
+    function setMarca($marca) {
             $this->marca = $marca;
         }
 
-        function setSituacao($situacao) {
+    function setSituacao($situacao) {
             $this->situacao = $situacao;
         }
 
-        function setObservacoes($observacoes) {
+    function setObservacoes($observacoes) {
             $this->observacoes = $observacoes;
         }
 
-        function setEExcluido($eExcluido) {
+    function setEExcluido($eExcluido) {
             $this->eExcluido = $eExcluido;
         }
 }

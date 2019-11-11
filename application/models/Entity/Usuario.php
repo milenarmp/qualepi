@@ -34,7 +34,9 @@ class Usuario {
 	**/
 	private $eExcluido;
 
-
+    /**
+    * Getters e Setters
+    */
 	public function getId(){
 		return $this->id;
 	}

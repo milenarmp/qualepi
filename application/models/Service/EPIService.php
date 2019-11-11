@@ -26,7 +26,7 @@ class EPIService {
 	/**Procura e retorna o registro do id que foi passado, se houver
 	* @param $id do Objeto/Registro
 	* @param $em entity manager do Doctrine
-	* @return $certificadoAprovacao Objeto do tipo CertificadoAprovacao, se houver
+	* @return Objeto do tipo EPI, se houver
 	*/
 	public function find($id, $em){
         $repo = $em->getRepository('Entity\EPI');
@@ -35,13 +35,18 @@ class EPIService {
 
 	/**Retorna todos os registros
 	* @param $em entity manager do Doctrine
-	* @return $certificadoAprovacao Objetos do tipo CertificadoAprovacao
+	* @return Objetos do tipo EPI
 	*/
 	public function fetchAll($em){
         $repo = $em->getRepository('Entity\EPI');
 		return $repo->findAll();
 	}
 
+	/**Busca o CA no banco de dados
+    * @param $termo string com o termo a ser pesquisado
+    * @param $em entity manager do Doctrine
+    * @return $EPIs array de objetos encontrados
+	*/
 	public function pesquisarEPI($termo, $em){
 		$CertificadoAprovacaoService = new \Service\CertificadoAprovacaoService;
 		$CAs = $CertificadoAprovacaoService->pesquisarCA($termo, $em);
@@ -52,6 +57,11 @@ class EPIService {
 		return $EPIs;
 	}
 
+	/**Procura e retorna o registro, se houver
+	/* @param $criterio array contendo os criterios a serem buscados
+	* @param $em entity manager do Doctrine
+	* @return array de Objeto do tipo EPI, se houver
+	*/
 	public function findBy(array $criterio, $em){
 		$repo = $em->getRepository('Entity\EPI');
 		return $repo->findBy($criterio);

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //Evento do botão cadastrar
     $("#btnCadastrar").click(function(){
     var dados = JSON.stringify($("#cadastroUsuario").serializeArray());
     $.ajax({
@@ -14,7 +15,7 @@ $(document).ready(function(){
             }
         });
     });
-
+    //Evento do botão limpar
     $("#btnLimpar").click(function(){
         document.getElementById('cadastroUsuario').reset();
     });

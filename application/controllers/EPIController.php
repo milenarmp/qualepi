@@ -78,10 +78,19 @@ class EPIController extends CI_Controller{
         echo json_encode($retorno);
  	}
 
+	/**
+ 	* Formata data
+ 	* @param  $data string
+ 	* @return objeto do tipo date
+	*/
     public function formataData($data){
         return date("Y/m/d", strtotime($data));
     }
 
+	/**
+ 	* Carrega view específica para visulizar dados do EPI
+ 	* @param  $CA string contendo id do CA
+	*/
     public function visualizarEPI($CA){
     	$CA = $this->CertificadoAprovacaoService->find($CA, $this->em);
     	$EPI = $this->EPIService->findBy(array('CertificadoAprovacao' => $CA->getId()), $this->em);
@@ -103,6 +112,10 @@ class EPIController extends CI_Controller{
     	$this->load->view('footer');
     }
 
+	/**
+ 	* Pesquisa o EPI a partir do termo passado via POST
+ 	* @return  $retorno array json
+	*/
     public function pesquisarEPIs(){
     	$pesquisa = trim($this->input->post('pesquisa'),true);
 
@@ -120,7 +133,6 @@ class EPIController extends CI_Controller{
 		 	];
 		 	}
 		 }
-
 		 $retorno = array(
              'EPI' => $retornoEPI
          );
@@ -128,6 +140,11 @@ class EPIController extends CI_Controller{
          echo json_encode($retorno);
 	}
 
+	/**
+ 	* Transforma objeto tipo date em string
+ 	* @param  $data objeto tipo date
+ 	* @return strin contendo a data transformada em string
+	*/
 	public function dataParaString($data){
 		return date_format($data, 'd/m/y');
 	}

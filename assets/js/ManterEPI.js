@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  $("#btnAtualizarEPIs").click(function(){
+    //Evento do botão atualizar epis
+    $("#btnAtualizarEPIs").click(function(){
     alert("Os EPIs serão atualizados agora. Essa ação pode demorar um pouco...");
        $.ajax({
             url: "atualizarEPIs",

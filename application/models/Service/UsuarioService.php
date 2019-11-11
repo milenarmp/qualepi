@@ -10,7 +10,7 @@ class UsuarioService {
 	/**Inserção de novo registro no dd
 	* @param $data array contendo dados a serem inseridos
 	* @param $em entity manager do Doctrine
-	* @return $certificadoAprovacao Objeto do tipo CertificadoAprovacao
+	* @return $Usuario Objeto do tipo Usuario
 	*/
 	public function insert(array $data, $em){
 		$usuario = new \Entity\Usuario;
@@ -32,7 +32,6 @@ class UsuarioService {
         $repo = $em->getRepository('Entity\Usuario');
         return $repo->find($id);
 	}
-
 
 	/**Procura e retorna o registro do parametro que foi passado, se houver
 	* @param $campo criterio

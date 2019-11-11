@@ -75,23 +75,17 @@ class UsuarioController extends CI_Controller{
 			}
 		}
 	}
-
-	public function checaLogin(){
-		if($this->session->userdata('logado')){
-			return true;
-		} else{
-			return false;
-		}
-	}
-
+	/**
+ 	* Desloga o usuário do sistema
+	*/
 	public function sair(){
 		$this->session->sess_destroy();
 	}
 
-	public function teste(){
-		$this->load->view('head', array('tituloPagina' => "Página Inicial"));
-		$this->load->view('header');
-		$this->load->view('login');
-		$this->load->view('footer');
-	}
+	// public function teste(){
+	// 	$this->load->view('head', array('tituloPagina' => "Página Inicial"));
+	// 	$this->load->view('header');
+	// 	$this->load->view('login');
+	// 	$this->load->view('footer');
+	// }
 }

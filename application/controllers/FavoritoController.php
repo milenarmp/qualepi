@@ -20,6 +20,9 @@ class FavoritoController extends CI_Controller{
 		$this->load->model('Service\EPIService', 'EPIService');
 	}
 
+	/**
+ 	* Método index da classe
+	*/
 	public function index(){
 		if($this->session->userdata('logado')){
 			$criterio = array(
@@ -39,6 +42,10 @@ class FavoritoController extends CI_Controller{
 		}
 	}
 
+	/**
+ 	* Adiciona um registro a tabela de Favorito
+ 	* @param  $CA string contendo o id do CA
+	*/
 	public function favoritar($CA){
 		$Usuario = $this->UsuarioService->find($this->session->userdata('idUsuario'), $this->em);
 		$CertificadoAprovacao = $this->CertificadoAprovacaoService->find($CA, $this->em);
