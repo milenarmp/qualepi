@@ -8,7 +8,7 @@ require_once(APPPATH . "models/Service/CertificadoAprovacaoService.php");
 
 class EPIService {
 
-	/**Inserção de novo registro no dd
+	/**Inserção de novo registro no database
 	* @param $data array contendo dados a serem inseridos
 	* @param $em entity manager do Doctrine
 	* @return $EPI Objeto do tipo EPI
@@ -65,5 +65,59 @@ class EPIService {
 	public function findBy(array $criterio, $em){
 		$repo = $em->getRepository('Entity\EPI');
 		return $repo->findBy($criterio);
+	}
+
+	/**
+ 	* Pesquisa e monta o array para montar o datatable
+ 	* @param   $EPIs array de objetos do tipo EPI
+ 	* @return  $retornoEPI array montado com infos
+	*/
+	public function retornoEPIsA($EPIs, $em){
+		$CertificadoAprovacaoService = new \Service\CertificadoAprovacaoService;
+		$retornoEPI = [];
+		 foreach($EPIs as $epi){
+		 	if(!empty($epi)){
+		 	$ca = $CertificadoAprovacaoService->find($epi[0]->getCertificadoAprovacao()->getId(), $em);
+		 	$retornoEPI[] = [
+		 		'numeroCA' => $ca->getId(),
+		 		'nome' => $ca->getNome(),
+		 		'dataValidade' => $this->dataParaString($ca->getDataValidade()),
+		 		'aprovadoPara' => mb_strtolower($ca->getAprovadoPara()),
+		 		'visualizar' => '<a href="http://localhost/qualepi/index.php/EPIController/visualizarEPI/'.$ca->getId().'" target="_blank">Mais detalhes</a>',
+		 			];
+				}
+			}
+		return $retornoEPI;
+	}
+
+	/**
+ 	* Pesquisa e monta o array para montar o datatable
+ 	* @param   $EPIs array de objetos do tipo EPI
+ 	* @return  $retornoEPI array montado com infos
+	*/
+	public function retornoEPIsB($EPIs, $em){
+		$CertificadoAprovacaoService = new \Service\CertificadoAprovacaoService;
+		$retornoEPI = [];
+		 foreach($EPIs as $epi){
+		 	if(!empty($epi)){
+		 	$ca = $CertificadoAprovacaoService->find($epi->getCertificadoAprovacao()->getId(), $em);
+		 	$retornoEPI[] = [
+		 		'numeroCA' => $ca->getId(),
+		 		'nome' => $ca->getNome(),
+		 		'dataValidade' => $this->dataParaString($ca->getDataValidade()),
+		 		'aprovadoPara' => mb_strtolower($ca->getAprovadoPara()),
+		 		'visualizar' => '<a href="http://localhost/qualepi/index.php/EPIController/visualizarEPI/'.$ca->getId().'" target="_blank">Mais detalhes</a>',
+		 			];
+				}
+			}
+		return $retornoEPI;
+	}
+	/**
+ 	* Transforma objeto tipo date em string
+ 	* @param  $data objeto tipo date
+ 	* @return strin contendo a data transformada em string
+	*/
+	public function dataParaString($data){
+		return date_format($data, 'd/m/y');
 	}
 }

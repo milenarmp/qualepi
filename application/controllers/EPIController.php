@@ -118,22 +118,9 @@ class EPIController extends CI_Controller{
 	*/
     public function pesquisarEPIs(){
     	$pesquisa = trim($this->input->post('pesquisa'),true);
-
 		$EPIs = $this->EPIService->pesquisarEPI($pesquisa, $this->em);
-		$retornoEPI = [];
-		 foreach($EPIs as $epi){
-		 	if(!empty($epi)){
-		 	$ca = $this->CertificadoAprovacaoService->find($epi[0]->getCertificadoAprovacao()->getId(), $this->em);
-		 	$retornoEPI[] = [
-		 		'numeroCA' => $ca->getId(),
-		 		'nome' => $ca->getNome(),
-		 		'dataValidade' => $this->dataParaString($ca->getDataValidade()),
-		 		'aprovadoPara' => mb_strtolower($ca->getAprovadoPara()),
-		 		'visualizar' => '<a href="http://localhost/qualepi/index.php/EPIController/visualizarEPI/'.$ca->getId().'" target="_blank">Mais detalhes</a>',
-		 	];
-		 	}
-		 }
-		 $retorno = array(
+		$retornoEPI = $this->EPIService->retornoEPIsA($EPIs, $this->em);
+		$retorno = array(
              'EPI' => $retornoEPI
          );
          header('Content-type: application/json');

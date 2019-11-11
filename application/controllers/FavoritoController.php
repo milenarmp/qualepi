@@ -29,7 +29,14 @@ class FavoritoController extends CI_Controller{
 				'Usuario' => $this->UsuarioService->find($this->session->userdata('idUsuario'), $this->em)
  			);
 			$favoritos = $this->FavoritoService->findBy($criterio, $this->em);
-			echo count($favoritos);
+			$EPIs = [];
+			foreach ($favoritos as $favorito){
+				$EPIs[] = $this->EPIService->find($favorito->getEPI(), $this->em);
+			}
+			$retornoEPI = $this->EPIService->retornoEPIsB($EPIs, $this->em);
+    		$this->load->view('head', array('tituloPagina' => "Visualizar EPI"));
+    		$this->load->view('header');
+			$this->load->view('favoritos', array('EPIs' => $retornoEPI));
 		}else{
 		$mensagem = array(
 			'titulo' => 'Ooops! Parece que você não está logado...',
