@@ -12,6 +12,7 @@
                     <th>Validade</th>
                     <th>Aprovado para:</th>
                     <th>Visualizar:</th>
+                    <th>Remover dos Favoritos:</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                     echo '<td><center>'.$epi['dataValidade'].'</center></td>';
                     echo '<td><center>'.$epi['aprovadoPara'].'</center></td>';
                     echo '<td><center>'.$epi['visualizar'].'</center></td>';
+                    echo '<td><center>'.$epi['remover'].'</center></td>';
                     echo "</tr>";
                 }
                 ?>

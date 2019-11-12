@@ -30,4 +30,16 @@ class FavoritoService {
 		$repo = $em->getRepository('Entity\Favorito');
 		return $repo->findBy($criterio);
 	}
+
+	/**Deleta o registro do banco de dados
+	* @param $id do Objeto/Registro a ser deletado
+	* @param $em entity manager do Doctrine
+	* @return true
+	*/
+	public function delete($id, $em){
+		$Favorito = $em->getReference('Entity\Favorito', $id);
+		$em->remove($Favorito);
+		$em->flush();
+		return true;
+	}
 }

@@ -29,6 +29,6 @@ $(document).ready(function() {
                                     "1": "Selecionado 1 linha"
                                 }
                             }
-                        }    
+                        }
     });
 });

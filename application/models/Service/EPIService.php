@@ -107,6 +107,7 @@ class EPIService {
 		 		'dataValidade' => $this->dataParaString($ca->getDataValidade()),
 		 		'aprovadoPara' => mb_strtolower($ca->getAprovadoPara()),
 		 		'visualizar' => '<a href="http://localhost/qualepi/index.php/EPIController/visualizarEPI/'.$ca->getId().'" target="_blank">Mais detalhes</a>',
+		 		'remover' => '<a href="http://localhost/qualepi/index.php/FavoritoController/remover/'.$ca->getId().'">Remover</a>'
 		 			];
 				}
 			}

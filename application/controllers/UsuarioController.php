@@ -72,9 +72,18 @@ class UsuarioController extends CI_Controller{
                    'idUsuario' => $usuario->getId()
                	);
 				$this->session->set_userdata($dadosSessao);
+				$retorno = array(
+            		'logado' => TRUE,
+        		);
+			} else{
+				$retorno = array(
+            		'logado' => FALSE,
+        		);
 			}
 		}
+		echo json_encode($retorno);
 	}
+
 	/**
  	* Desloga o usuário do sistema
 	*/
@@ -82,10 +91,10 @@ class UsuarioController extends CI_Controller{
 		$this->session->sess_destroy();
 	}
 
-	// public function teste(){
-	// 	$this->load->view('head', array('tituloPagina' => "Página Inicial"));
-	// 	$this->load->view('header');
-	// 	$this->load->view('login');
-	// 	$this->load->view('footer');
-	// }
+	public function inicio(){
+		$this->load->view('head', array('tituloPagina' => "Página Inicial do Usuário"));
+		$this->load->view('header');
+		$this->load->view('inicio', array('dados' => $this->session->userdata('nomeUsuario')));
+		$this->load->view('footer');
+	}
 }

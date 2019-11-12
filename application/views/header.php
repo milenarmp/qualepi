@@ -1,5 +1,7 @@
 	<body>
 		<script src="<?=base_url("assets/js/PesquisarEPI.js") ?>"></script>
+
+		<!-- Page Content -->
 		<div class="container-fluid">
 		<div class="header">
 			<nav class="navbar navbar-expand-lg navbar-fixed-top" id="barra">
@@ -72,7 +74,3 @@
 	    </div>
 	  </div>
 	</div>
-
-
-
-

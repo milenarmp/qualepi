@@ -121,8 +121,7 @@ html, body {
 
 /*Começo do visualizarEPIs*/
 .rotulo {
-	color: white;
-	text-shadow: 2px 2px black;
+	color: green;
 }
 
 #visao {
@@ -135,4 +134,17 @@ html, body {
 
 #comentario {
 	background-color: white;
+}
+
+.verEPI {
+	background-color: rgba(79, 178, 102, 0.4);
+	font-family: 'Literata', serif;
+}
+
+.tituloEPI {
+	box-shadow: 2px 3px 0px green;
+}
+
+.segundaLinha {
+	padding: 10px;
 }

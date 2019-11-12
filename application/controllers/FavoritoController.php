@@ -67,4 +67,24 @@ class FavoritoController extends CI_Controller{
 		);
 		$this->FavoritoService->insert($dadosFavorito, $this->em);
 	}
+
+	/**
+ 	* Remove um registro a tabela de Favorito
+ 	* @param  $CA string contendo o id do CA
+	*/
+	public function remover($CA){
+		$Usuario = $this->UsuarioService->find($this->session->userdata('idUsuario'), $this->em);
+		$CertificadoAprovacao = $this->CertificadoAprovacaoService->find($CA, $this->em);
+		$criterio = array(
+			'CertificadoAprovacao' => $CertificadoAprovacao
+		);
+		$EPI = $this->EPIService->findBy($criterio, $this->em);
+
+		$criterioFavorito = array(
+			'Usuario' => $Usuario,
+			'EPI' => $EPI[0]
+		);
+		$Favorito = $this->FavoritoService->findBy($criterioFavorito, $this->em);
+		$this->FavoritoService->delete($Favorito[0]->getId(), $this->em);
+	}
 }

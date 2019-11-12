@@ -1,10 +1,10 @@
 <div class="container" id="visao">
-	<div class="card bg-success">
+	<div class="card verEPI">
 	  <div class="card-body">
-	  	<div class="row">
+	  	<div class="row tituloEPI">
 	    	<h5 class="card-title"><?=$retorno['nomeEPI']?> - C.A. <?=$retorno['caEPI']?></h5>
 		</div>
-		<div class="row">
+		<div class="row segundaLinha">
 			<div class="col-lg-2">
 	    		<p class="card-text"><span class="rotulo">Situação:</span> <?=$retorno['situacao']?></p>
 			</div>
