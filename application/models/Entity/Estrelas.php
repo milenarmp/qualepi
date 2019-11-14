@@ -26,10 +26,9 @@ class Estrelas {
      */
     private $Usuario;
 
-	/**
-     * Um registro de estrela possuí um EPI.
-     * @ORM\OneToOne(targetEntity="EPI")
-     * @ORM\JoinColumn(name="epi_id", referencedColumnName="id_epi")
+    /**
+     * @ORM\ManyToOne(targetEntity="EPI", inversedBy="id_estrela")
+     * @ORM\JoinColumn(nullable=false, name="id_epi", referencedColumnName="id_epi")
      */
 	private $EPI;
 

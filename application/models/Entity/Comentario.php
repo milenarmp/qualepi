@@ -24,22 +24,17 @@ class Comentario {
 	* @ORM\Column(type="date", name="data_inclusao_comentario")
 	**/
 	private $dataInclusao;
-	/**
-	* @ORM\Column(type="boolean", name="excluido_comentario")
-	**/
-	private $eExcluido;
     /**
-     * Um comentário possuí um usuário.
-     * @ORM\OneToOne(targetEntity="Usuario")
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id_usuario")
-     */
-    private $Usuario;
-    /**
-     * Um comentário possuí um EPI.
-     * @ORM\OneToOne(targetEntity="EPI")
-     * @ORM\JoinColumn(name="epi_id", referencedColumnName="id_epi")
+     * @ORM\ManyToOne(targetEntity="EPI", inversedBy="id_comentario")
+     * @ORM\JoinColumn(nullable=false, name="id_epi", referencedColumnName="id_epi")
      */
 	private $EPI;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="id_comentario")
+     * @ORM\JoinColumn(nullable=false, name="id_usuario", referencedColumnName="id_usuario")
+     */
+    protected $Usuario;
 
     /**
     * Getters e Setters
