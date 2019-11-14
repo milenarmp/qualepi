@@ -24,14 +24,6 @@ $this->load->helper('url');
 	<script src="<?=base_url("assets/DataTables/datatables.min.js") ?>"></script>
 	<link rel="stylesheet" href="<?=base_url("css/font-awesome.min.css") ?>">
 	<link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script>
-	function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
 	</script>
   </head>

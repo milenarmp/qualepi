@@ -1,7 +1,13 @@
 	<body>
 		<script src="<?=base_url("assets/js/PesquisarEPI.js") ?>"></script>
-
-		<!-- Page Content -->
+		<div class="sidenav">
+		  <a href="#">About</a>
+		  <a href="#">Services</a>
+		  <a href="#">Clients</a>
+		  <a href="#">Contact</a>
+		</div>
+	<!-- Page Content -->
+	<div class="main">
 		<div class="container-fluid">
 		<div class="header">
 			<nav class="navbar navbar-expand-lg navbar-fixed-top" id="barra">
@@ -43,6 +49,7 @@
 				</form>
 			</div>
 		</div>
+  </div>
 
 	<div id="meuModal" class="modal" tabindex="-1" role="dialog">
 	  <div class="modal-dialog modal-lg" role="document">
