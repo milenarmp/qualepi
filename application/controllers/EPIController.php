@@ -16,14 +16,17 @@ class EPIController extends CI_Controller{
 		$this->load->library('session');
 		$this->load->model('Service\CertificadoAprovacaoService', 'CertificadoAprovacaoService');
 		$this->load->model('Service\EPIService', 'EPIService');
+		$this->load->model('Service\ComentarioService', 'ComentarioService');
 	}
 	/**
  	* Método index da classe, renderiza a visão
 	*/
 	public function index(){
 		$this->load->view('head', array('tituloPagina' => "Início"));
-		$this->load->view('header');
-        $this->load->view('manterEPI');
+		$logado = $this->session->userdata('logado');
+		$nomeUsuario = $this->session->userdata('nomeUsuario');
+		$this->load->view('header', array('logado' => $logado, 'nomeUsuario' => $nomeUsuario));
+        $this->load->view('inicio');
 		$this->load->view('footer');
 	}
 
@@ -94,7 +97,9 @@ class EPIController extends CI_Controller{
     public function visualizarEPI($CA){
     	$CA = $this->CertificadoAprovacaoService->find($CA, $this->em);
     	$EPI = $this->EPIService->findBy(array('CertificadoAprovacao' => $CA->getId()), $this->em);
+    	$Comentarios = $this->ComentarioService->retornoComentarios($EPI, $this->em);
     	$retorno = array(
+    		'logado' => $this->session->userdata('logado'),
     		'nomeEPI' => $CA->getNome(),
     		'situacao' => $CA->getSituacao(),
     		'caEPI' => $CA->getId(),
@@ -104,10 +109,13 @@ class EPIController extends CI_Controller{
     		'fabricante' => $CA->getRazaoSocial(),
     		'natureza' => $CA->getNatureza(),
     		'restritoPara' => mb_strtolower($CA->getRestritoPara()),
-    		'descricao' => mb_strtolower($CA->getDescricao())
+    		'descricao' => mb_strtolower($CA->getDescricao()),
+    		'comentarios' => $Comentarios
     	);
     	$this->load->view('head', array('tituloPagina' => "Visualizar EPI"));
-    	$this->load->view('header');
+    	$logado = $this->session->userdata('logado');
+		$nomeUsuario = $this->session->userdata('nomeUsuario');
+		$this->load->view('header', array('logado' => $logado, 'nomeUsuario' => $nomeUsuario));
     	$this->load->view('visualizarEPI', array('retorno' => $retorno));
     	$this->load->view('footer');
     }

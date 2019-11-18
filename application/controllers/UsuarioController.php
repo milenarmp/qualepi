@@ -22,7 +22,9 @@ class UsuarioController extends CI_Controller{
 	*/
 	public function cadastro(){
 		$this->load->view('head', array('tituloPagina' => "Cadastro"));
-		$this->load->view('header');
+		$logado = $this->session->userdata('logado');
+		$nomeUsuario = $this->session->userdata('nomeUsuario');
+		$this->load->view('header', array('logado' => $logado, 'nomeUsuario' => $nomeUsuario));
 		$this->load->view('cadastro');
 		$this->load->view('footer');
 	}
@@ -38,12 +40,16 @@ class UsuarioController extends CI_Controller{
 		$dados['email'] = $dadosUsuario[2]['value'];
 		$dados['senha'] = $dadosUsuario[4]['value'];
 		$usuario = $this->UsuarioService->insert($dados, $this->em);
-
 		if(is_object($usuario)){
-            return true;
+			$retorno = array(
+            	'msg' => TRUE,
+        		);
 		}else{
-            return false;
+			$retorno = array(
+            	'msg' => FALSE,
+        		);
 		}
+		echo json_encode($retorno);
 	}
 
 	/**
@@ -51,7 +57,9 @@ class UsuarioController extends CI_Controller{
 	*/
 	public function login(){
 		$this->load->view('head', array('tituloPagina' => "Login"));
-		$this->load->view('header');
+		$logado = $this->session->userdata('logado');
+		$nomeUsuario = $this->session->userdata('nomeUsuario');
+		$this->load->view('header', array('logado' => $logado, 'nomeUsuario' => $nomeUsuario));
 		$this->load->view('login');
 		$this->load->view('footer');
 	}
@@ -75,11 +83,11 @@ class UsuarioController extends CI_Controller{
 				$retorno = array(
             		'logado' => TRUE,
         		);
-			} else{
+			}
+			}else{
 				$retorno = array(
             		'logado' => FALSE,
         		);
-			}
 		}
 		echo json_encode($retorno);
 	}
@@ -89,12 +97,6 @@ class UsuarioController extends CI_Controller{
 	*/
 	public function sair(){
 		$this->session->sess_destroy();
-	}
-
-	public function inicio(){
-		$this->load->view('head', array('tituloPagina' => "Página Inicial do Usuário"));
-		$this->load->view('header');
-		$this->load->view('inicio', array('dados' => $this->session->userdata('nomeUsuario')));
-		$this->load->view('footer');
+		header("Location: /qualepi/index.php/EPIController");
 	}
 }

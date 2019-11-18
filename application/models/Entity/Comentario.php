@@ -21,7 +21,7 @@ class Comentario {
 	*/
 	private $descricao;
 	/**
-	* @ORM\Column(type="date", name="data_inclusao_comentario")
+	* @ORM\Column(type="date", name="data_inclusao_comentario", nullable=true)
 	**/
 	private $dataInclusao;
     /**
@@ -34,7 +34,7 @@ class Comentario {
      * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="id_comentario")
      * @ORM\JoinColumn(nullable=false, name="id_usuario", referencedColumnName="id_usuario")
      */
-    protected $Usuario;
+    private $Usuario;
 
     /**
     * Getters e Setters
@@ -49,6 +49,14 @@ class Comentario {
 
 	public function setTitulo($titulo){
 		$this->titulo = $titulo;
+	}
+
+	public function getUsuario(){
+		return $this->Usuario;
+	}
+
+	public function setUsuario($Usuario){
+		$this->Usuario = $Usuario;
 	}
 
 	public function getDescricao(){
@@ -67,11 +75,11 @@ class Comentario {
 		$this->dataInclusao = $dataInclusao;
 	}
 
-	public function getEExcluido(){
-		return $this->eExcluido;
+	public function setEPI($EPI){
+		$this->EPI = $EPI;
 	}
 
-	public function setEExcluido($eExcluido){
-		$this->eExcluido = $eExcluido;
+	public function getEPI(){
+		return $this->EPI;
 	}
 }

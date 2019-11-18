@@ -6,7 +6,9 @@ $(document).ready(function(){
             $.post("/qualepi/index.php/UsuarioController/logar", { 'nomeUsuario' : nomeUsuario, 'senha' : senha},
                 function(data){
                     if (data.logado == true){
-                    	window.location.replace("http://localhost/qualepi/index.php/UsuarioController/inicio");
+                    	window.location.replace("http://localhost/qualepi/index.php/EPIController");
+                    }else{
+                    	alert("Nome de usuário ou senha incorretos. Tente novamente!");
                     }
             }, "json");
     });

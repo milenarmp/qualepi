@@ -1,28 +1,44 @@
 	<body>
+
 		<script src="<?=base_url("assets/js/PesquisarEPI.js") ?>"></script>
+		<?php
+		if(isset($logado)){
+			if($logado == TRUE){
+		?>
 		<div class="sidenav">
-		  <a href="#">About</a>
-		  <a href="#">Services</a>
-		  <a href="#">Clients</a>
-		  <a href="#">Contact</a>
+			<div>
+				<figure >
+				<img class="icone" src="<?=base_url("images/img1.png") ?>" alt="Ícone usuário">
+				</figure>
+				<div class="nomeUser">
+					<?=$nomeUsuario?>
+				</div>
+			</div>
+		  <a href="#">Início</a>
+		  <a href="/qualepi/index.php/FavoritoController/">Favoritos</a>
+		  <a href="/qualepi/index.php/UsuarioController/sair">Sair</a>
 		</div>
 	<!-- Page Content -->
 	<div class="main">
+		<?php
+		}
+		}
+		?>
 		<div class="container-fluid">
 		<div class="header">
 			<nav class="navbar navbar-expand-lg navbar-fixed-top" id="barra">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="navbar-link" href="#"><span class="barraNavegacao">Início</span></a>
+						<a class="navbar-link" href="/qualepi/index.php/EPIController"><span class="barraNavegacao">Início</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="navbar-link" href="#"><span class="barraNavegacao">Sobre Nós</span></a>
+						<a class="navbar-link" href=""><span class="barraNavegacao">Sobre Nós</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="navbar-link" href="#"><span class="barraNavegacao">Contato</span></a>
 					</li>
 				</ul>
-				<span class="navbar-text">Cadastro | Login </span>
+				<span class="navbar-text"><a href="/qualepi/index.php/UsuarioController/cadastro">Cadastro</a> | <a href="/qualepi/index.php/UsuarioController/login">Login</a> </span>
 			</nav><!-- fim da barra de navegação -->
 			<div>
 				<div class="form-group">

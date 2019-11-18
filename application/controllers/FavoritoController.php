@@ -35,7 +35,9 @@ class FavoritoController extends CI_Controller{
 			}
 			$retornoEPI = $this->EPIService->retornoEPIsB($EPIs, $this->em);
     		$this->load->view('head', array('tituloPagina' => "Visualizar EPI"));
-    		$this->load->view('header');
+    		$logado = $this->session->userdata('logado');
+		$nomeUsuario = $this->session->userdata('nomeUsuario');
+		$this->load->view('header', array('logado' => $logado, 'nomeUsuario' => $nomeUsuario));
 			$this->load->view('favoritos', array('EPIs' => $retornoEPI));
 			$this->load->view('footer');
 		}else{
@@ -44,7 +46,9 @@ class FavoritoController extends CI_Controller{
 			'observacoes' => 'Algumas funcionalidades do sistema são destinadas para usuários autenticados. Por favor, faça seu login ou cadastre-se!'
 		);
 		$this->load->view('head', array('tituloPagina' => "Erro!"));
-		$this->load->view('header');
+		$logado = $this->session->userdata('logado');
+		$nomeUsuario = $this->session->userdata('nomeUsuario');
+		$this->load->view('header', array('logado' => $logado, 'nomeUsuario' => $nomeUsuario));
         $this->load->view('mensagem', array('mensagem' => $mensagem));
 		$this->load->view('footer');
 		}
@@ -52,9 +56,9 @@ class FavoritoController extends CI_Controller{
 
 	/**
  	* Adiciona um registro a tabela de Favorito
- 	* @param  $CA string contendo o id do CA
 	*/
-	public function favoritar($CA){
+	public function favoritar(){
+		$CA = trim($this->input->post('certificadoAprovacao'),true);
 		$Usuario = $this->UsuarioService->find($this->session->userdata('idUsuario'), $this->em);
 		$CertificadoAprovacao = $this->CertificadoAprovacaoService->find($CA, $this->em);
 		$criterio = array(
@@ -65,7 +69,17 @@ class FavoritoController extends CI_Controller{
 			'Usuario' => $Usuario,
 			'EPI' => $EPI[0]
 		);
-		$this->FavoritoService->insert($dadosFavorito, $this->em);
+		$Favorito = $this->FavoritoService->insert($dadosFavorito, $this->em);
+		if(is_object($Favorito)){
+			$retorno = array(
+            	'msg' => TRUE,
+        		);
+		}else{
+			$retorno = array(
+            	'msg' => FALSE,
+        		);
+		}
+		echo json_encode($retorno);
 	}
 
 	/**
@@ -86,5 +100,6 @@ class FavoritoController extends CI_Controller{
 		);
 		$Favorito = $this->FavoritoService->findBy($criterioFavorito, $this->em);
 		$this->FavoritoService->delete($Favorito[0]->getId(), $this->em);
+		header("Location: /qualepi/index.php/FavoritoController");
 	}
 }

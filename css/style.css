@@ -49,6 +49,20 @@ html, body {
 	margin-top: 14px;
 	margin-left: -5px;
 }
+
+.icone {
+	width: 120px;
+	margin-left: 40px;
+}
+
+.nomeUser {
+	font-family: 'Literata', serif;
+	font-size: 24px;
+	text-align: center;
+	color: white;
+	box-shadow: 1px 3px 3px black;
+	padding-bottom: 10px;
+}
 /*Fim do header*/
 
 /*Começo do rodapé*/
@@ -90,6 +104,7 @@ html, body {
 .titulo {
 	color: #126717;
 	padding: 10px;
+	font-family: 'Literata', serif;
 }
 .dadosUsuario {
 	width: 55%;
@@ -148,6 +163,26 @@ html, body {
 .segundaLinha {
 	padding: 10px;
 }
+
+#comentario {
+	border-right: 1px solid black;
+	background-color: transparent;
+}
+
+.scrolar {
+	padding: 20px;
+	overflow: auto;
+	width: 100%;
+	height: 160px;
+	margin-left: 10px;
+}
+
+.itemComentario{
+	border: 1px dotted #075A09;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 2px;
+}
 /*Fim do visualizarEPIs*/
 
 /*Começo da sidebar*/
@@ -158,7 +193,8 @@ html, body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #69D188;
+  font-family: 'Literata', serif;
+  background-color: rgba(0, 0, 0, 0.7);
   box-shadow: 2px 3px 0px black;
   overflow-x: hidden;
   padding-top: 20px;
@@ -168,7 +204,7 @@ html, body {
   padding: 6px 6px 6px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #53B66B;
   display: block;
 }
 
@@ -183,4 +219,12 @@ html, body {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+.MTE {
+	background-color: rgba(130, 137, 132, 0.5);
+}
+
+.cardsItens{
+	margin-left: 10%;
 }

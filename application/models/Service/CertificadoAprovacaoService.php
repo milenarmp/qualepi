@@ -116,7 +116,10 @@ class CertificadoAprovacaoService {
        $query = $repository->createQueryBuilder('p')
                ->where('p.nome LIKE :termo')
                ->orWhere('p.descricao LIKE :termo')
-               ->setParameter('termo', $termo)
+               ->orWhere('p.razaoSocial LIKE :termo')
+               ->orWhere('p.aprovadoPara LIKE :termo')
+               ->orWhere('p.id LIKE :termo')
+               ->setParameter('termo', '%'.$termo.'%')
                ->getQuery();
 		return $query->getResult();
 	}

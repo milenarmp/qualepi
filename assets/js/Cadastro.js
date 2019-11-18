@@ -7,11 +7,10 @@ $(document).ready(function(){
             dataType: "json",
             type: "POST",
             data: {'dados':dados},
-            error: function(){
-                $('#falha').show()
-            },
-            success: function(){
-                $('#sucesso').show()
+            success: function(data){
+                if(data.msg == true){
+                    window.location.replace("http://localhost/qualepi/index.php/UsuarioController/login");
+                }
             }
         });
     });
