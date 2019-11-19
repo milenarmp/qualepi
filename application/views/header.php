@@ -14,7 +14,7 @@
 					<?=$nomeUsuario?>
 				</div>
 			</div>
-		  <a href="#">Início</a>
+		  <a href="/qualepi/index.php/EPIController/">Início</a>
 		  <a href="/qualepi/index.php/FavoritoController/">Favoritos</a>
 		  <a href="/qualepi/index.php/UsuarioController/sair">Sair</a>
 		</div>
@@ -38,7 +38,17 @@
 						<a class="navbar-link" href="#"><span class="barraNavegacao">Contato</span></a>
 					</li>
 				</ul>
+				<?php
+					if(!isset($logado)){
+				?>
 				<span class="navbar-text"><a href="/qualepi/index.php/UsuarioController/cadastro">Cadastro</a> | <a href="/qualepi/index.php/UsuarioController/login">Login</a> </span>
+				<?php
+			}else{
+				?>
+				<span class="navbar-text">Bem vindo, <?=$nomeUsuario?>!</span>
+			<?php
+			}
+			?>
 			</nav><!-- fim da barra de navegação -->
 			<div>
 				<div class="form-group">

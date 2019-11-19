@@ -8,13 +8,10 @@
     				<a class="nav-link barraRodape" href="#" >Contato</a>
   				</li>
   				<li class="nav-item">
-    				<a class="nav-link barraRodape" href="#">MTE</a>
+    				<a class="nav-link barraRodape" href="http://trabalho.gov.br/">MTE</a>
   				</li>
   				<li class="nav-item">
-    				<a class="nav-link barraRodape" href="#">Cadastro</a>
-  				</li>
-   				<li class="nav-item">
-    				<a class="nav-link barraRodapeUltimo" href="#">Como funciona?</a>
+    				<a class="nav-link barraRodapeUltimo" href="/qualepi/index.php/UsuarioController/cadastro">Cadastro</a>
   				</li>
 			</ul>
       <div class="col-lg-4">

@@ -23,7 +23,7 @@
   				<div class="card-body">
     				<h5 class="card-title">Norma Regulamentadora (NR) 6</h5>
     				<p class="card-text">A NR de número 6 é a responsável pelos EPIs.</p>
-    				<a href="http://www.guiatrabalhista.com.br/legislacao/nr/nr6.htm" target="blank" class="btn btn-success">Acessar</a>
+    				<a href="https://enit.trabalho.gov.br/portal/images/Arquivos_SST/SST_NR/NR-06.pdf" target="blank" class="btn btn-success">Acessar</a>
   				</div>
 			</div>
 		</div>
