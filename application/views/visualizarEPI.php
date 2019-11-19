@@ -4,7 +4,7 @@
 	<div class="card verEPI">
 	  <div class="card-body">
 	  	<div class="row tituloEPI">
-	    	<h5 class="card-title"><?=$retorno['nomeEPI']?> - C.A. <span id="CA"> <?=$retorno['caEPI']?></span></h5>
+	    	<h5 class="card-title"><?=$retorno['nomeEPI']?> - C.A. <span id="CA"> <?=$retorno['caEPI']?> </span></h5>
 		</div>
 		<div class="row segundaLinha">
 			<div class="col-lg-2">
