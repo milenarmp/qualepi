@@ -35,19 +35,20 @@ class UsuarioController extends CI_Controller{
 	*/
 	public function cadastrar(){
 		$dadosUsuario = json_decode($_POST['dados'],true);
-		$dados['nome'] = $dadosUsuario[0]['value'];
-		$dados['nomeUsuario'] = $dadosUsuario[1]['value'];
-		$dados['email'] = $dadosUsuario[2]['value'];
-		$dados['senha'] = $dadosUsuario[4]['value'];
-		$usuario = $this->UsuarioService->insert($dados, $this->em);
-		if(is_object($usuario)){
+		if(!is_object($this->UsuarioService->findOneBy(array('login' => $dadosUsuario[1]['value']), $this->em))){
+			$dados['nome'] = $dadosUsuario[0]['value'];
+			$dados['nomeUsuario'] = $dadosUsuario[1]['value'];
+			$dados['email'] = $dadosUsuario[2]['value'];
+			$dados['senha'] = $dadosUsuario[4]['value'];
+			$usuario = $this->UsuarioService->insert($dados, $this->em);
 			$retorno = array(
-            	'msg' => TRUE,
-        		);
+	            	'msg' => TRUE,
+	        		);
+			echo json_encode($retorno);
 		}else{
 			$retorno = array(
-            	'msg' => FALSE,
-        		);
+	            	'msg' => FALSE,
+	        		);
 		}
 		echo json_encode($retorno);
 	}
@@ -87,6 +88,7 @@ class UsuarioController extends CI_Controller{
 			}else{
 				$retorno = array(
             		'logado' => FALSE,
+            		'msg' => 'Usuário não cadastrado no sistema.'
         		);
 		}
 		echo json_encode($retorno);

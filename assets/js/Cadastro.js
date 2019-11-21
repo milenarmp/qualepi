@@ -10,6 +10,8 @@ $(document).ready(function(){
             success: function(data){
                 if(data.msg == true){
                     window.location.replace("http://localhost/qualepi/index.php/UsuarioController/login");
+                }else{
+                    alert("O usuário já está cadastrado no sistema.");
                 }
             }
         });

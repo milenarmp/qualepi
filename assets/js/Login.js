@@ -8,7 +8,11 @@ $(document).ready(function(){
                     if (data.logado == true){
                     	window.location.replace("http://localhost/qualepi/index.php/EPIController");
                     }else{
-                    	alert("Nome de usuário ou senha incorretos. Tente novamente!");
+                    	if(data.msg !== null){
+                    		alert(data.msg);
+                    	}else{
+                    		alert("Nome de usuário ou senha incorretos. Tente novamente!");
+                    	}
                     }
             }, "json");
     });

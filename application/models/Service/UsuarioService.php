@@ -42,4 +42,14 @@ class UsuarioService {
         $repo = $em->getRepository('Entity\Usuario');
         return $repo->findOneBy($campo);
 	}
+
+	/**Procura e retorna o registro, se houver
+	/* @param $criterio array contendo os criterios a serem buscados
+	* @param $em entity manager do Doctrine
+	* @return array de Objeto do tipo Usuario, se houver
+	*/
+	public function findBy(array $criterio, $em){
+		$repo = $em->getRepository('Entity\usuario');
+		return $repo->findBy($criterio);
+	}
 }
