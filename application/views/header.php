@@ -43,7 +43,7 @@
 				<?php
 					if(!isset($logado)){
 				?>
-				<span class="navbar-text"><a href="/qualepi/index.php/UsuarioController/cadastro"><i class="fab fa-wpforms"> Cadastro</i></a> | <a href="/qualepi/index.php/UsuarioController/login"><i class="fas fa-sign-in-alt"> Login</i></a> </span>
+				<span class="navbar-text linksNavbar"><a href="/qualepi/index.php/UsuarioController/cadastro"><i class="fab fa-wpforms"> Cadastro</i></a> | <a href="/qualepi/index.php/UsuarioController/login"><i class="fas fa-sign-in-alt"> Login</i></a> </span>
 				<?php
 			}else{
 				?>
@@ -55,11 +55,11 @@
 			<div>
 				<div class="form-group">
 					<div class="row">
-					<div class="col-md-5 col-lg-5 col-sm-8 offset-md-1">
+					<div class="col-md-5 col-lg-6 col-sm-8 offset-md-1">
 						<input type="text" class="form-control" id="pesquisa" placeholder="&#xF002;" >
 						</div>
-							<div class="col-md-1 col-lg-1 col-sm-4">
-								<button type="submit" id="btnBuscar" class="btn btn-success btn-sm"><i class="fas fa-search"></i> Buscar</button>
+							<div class="col-lg-1">
+								<button type="submit" id="btnBuscar" class="btn btn-success btn-sm" style="width: 82.4px"><i class="fas fa-search"></i> Buscar</button>
 							</div>
 					</div>
 					</div>

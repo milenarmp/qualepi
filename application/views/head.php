@@ -22,8 +22,13 @@ $this->load->helper('url');
 	<script src="<?=base_url("assets/js/datatable.js") ?>"></script>
 	<script src="<?=base_url("assets/DataTables/datatables.min.js") ?>"></script>
 	<link rel="stylesheet" href="<?=base_url("css/font-awesome.min.css") ?>">
-	<link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/7904369503.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+
+	<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 	<script>
 	</script>
   </head>

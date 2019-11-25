@@ -53,15 +53,20 @@
         table.destroy();
     });
 
-    function w3_open() {
-  document.getElementById("main").style.marginLeft = "25%";
-  document.getElementById("mySidebar").style.width = "25%";
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("openNav").style.display = 'none';
-}
-function w3_close() {
-  document.getElementById("main").style.marginLeft = "0%";
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("openNav").style.display = "inline-block";
-}
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
 });

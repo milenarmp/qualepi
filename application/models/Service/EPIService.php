@@ -106,8 +106,8 @@ class EPIService {
 		 		'nome' => $ca->getNome(),
 		 		'dataValidade' => $this->dataParaString($ca->getDataValidade()),
 		 		'aprovadoPara' => mb_strtolower($ca->getAprovadoPara()),
-		 		'visualizar' => '<a href="http://localhost/qualepi/index.php/EPIController/visualizarEPI/'.$ca->getId().'" target="_blank">Mais detalhes</a>',
-		 		'remover' => '<a href="http://localhost/qualepi/index.php/FavoritoController/remover/'.$ca->getId().'">Remover</a>'
+		 		'visualizar' => '<a href="http://localhost/qualepi/index.php/EPIController/visualizarEPI/'.$ca->getId().'" target="_blank"><i class="fas fa-info-circle"> </i></a>',
+		 		'remover' => '<a href="http://localhost/qualepi/index.php/FavoritoController/remover/'.$ca->getId().'"><i class="fas fa-trash-alt"> </i></a>'
 		 			];
 				}
 			}

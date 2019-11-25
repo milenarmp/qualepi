@@ -1,6 +1,7 @@
 /*Começo do header*/
 html, body {
     overflow-x: hidden;
+    font-family: 'PT Serif', serif;
 }
 .container-fluid {
 	padding:0;
@@ -56,10 +57,9 @@ html, body {
 }
 
 .nomeUser {
-	font-size: 24px;
+	font-size: 22px;
 	text-align: center;
-	color: white;
-	padding-bottom: 10px;
+	color: #53B66B;
 }
 
 .iconeUser{
@@ -193,8 +193,8 @@ html, body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  box-shadow: 2px 3px 3px black;
+  background-color: rgb(33, 33, 33, 0.75);
+  box-shadow: 20px -2px 44px -19px rgba(0,0,0,1);
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -221,14 +221,32 @@ html, body {
 }
 
 .MTE {
-	background-color: rgba(130, 137, 132, 0.5);
-}
-
-.cardsItens{
-	margin-left: 10%;
+	background: transparent;
+	box-shadow: 2px 4px 30px -4px rgba(0,0,0,0.69);
 }
 
 .areaUsuario {
-	border-radius: 5px;
 	box-shadow: 1px 3px 3px black;
+	margin-bottom: 10px;
+}
+
+.swiper-container {
+  width: 70%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.linksNavbar a{
+  text-decoration: none;
+  color: #015201;
+}
+
+.linksNavbar a:hover {
+  color: black;
 }
