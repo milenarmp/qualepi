@@ -15,7 +15,7 @@ html, body {
 	color: white;
 }
 .navbar-nav {
-	margin-right: 65%;
+	margin-right: 60%;
 }
 .row {
 	margin:0;
@@ -56,12 +56,14 @@ html, body {
 }
 
 .nomeUser {
-	font-family: 'Literata', serif;
 	font-size: 24px;
 	text-align: center;
 	color: white;
-	box-shadow: 1px 3px 3px black;
 	padding-bottom: 10px;
+}
+
+.iconeUser{
+	margin-left: 30px;
 }
 /*Fim do header*/
 
@@ -104,7 +106,6 @@ html, body {
 .titulo {
 	color: #126717;
 	padding: 10px;
-	font-family: 'Literata', serif;
 }
 .dadosUsuario {
 	width: 55%;
@@ -153,7 +154,6 @@ html, body {
 
 .verEPI {
 	background-color: rgba(79, 178, 102, 0.4);
-	font-family: 'Literata', serif;
 }
 
 .tituloEPI {
@@ -193,9 +193,8 @@ html, body {
   z-index: 1;
   top: 0;
   left: 0;
-  font-family: 'Literata', serif;
   background-color: rgba(0, 0, 0, 0.7);
-  box-shadow: 2px 3px 0px black;
+  box-shadow: 2px 3px 3px black;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -227,4 +226,9 @@ html, body {
 
 .cardsItens{
 	margin-left: 10%;
+}
+
+.areaUsuario {
+	border-radius: 5px;
+	box-shadow: 1px 3px 3px black;
 }

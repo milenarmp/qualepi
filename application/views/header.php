@@ -6,17 +6,19 @@
 			if($logado == TRUE){
 		?>
 		<div class="sidenav">
-			<div>
-				<figure >
-				<img class="icone" src="<?=base_url("images/img1.png") ?>" alt="Ícone usuário">
-				</figure>
+			<div class="areaUsuario">
+				<div class="row">
+					<div class="col iconeUser">
+					<i class="fas fa-user-circle fa-7x"></i>
+					</div>
+				</div>
 				<div class="nomeUser">
 					<?=$nomeUsuario?>
 				</div>
 			</div>
-		  <a href="/qualepi/index.php/EPIController/">Início</a>
-		  <a href="/qualepi/index.php/FavoritoController/">Favoritos</a>
-		  <a href="/qualepi/index.php/UsuarioController/sair">Sair</a>
+		  <a href="/qualepi/index.php/EPIController/"><i class="fas fa-home"> Início</i></a>
+		  <a href="/qualepi/index.php/FavoritoController/"><i class="fas fa-heart"> Favoritos</i></a>
+		  <a href="/qualepi/index.php/UsuarioController/sair"><i class="fas fa-sign-out-alt"> Sair</i></a>
 		</div>
 	<!-- Page Content -->
 	<div class="main">
@@ -29,19 +31,19 @@
 			<nav class="navbar navbar-expand-lg navbar-fixed-top" id="barra">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="navbar-link" href="/qualepi/index.php/EPIController"><span class="barraNavegacao">Início</span></a>
+						<a class="navbar-link" href="/qualepi/index.php/EPIController"><span class="barraNavegacao"><i class="fas fa-home"> Início</i></span></a>
 					</li>
 					<li class="nav-item">
-						<a class="navbar-link" href=""><span class="barraNavegacao">Sobre Nós</span></a>
+						<a class="navbar-link" href=""><span class="barraNavegacao"><i class="fas fa-id-card"> Sobre Nós</i></span></a>
 					</li>
 					<li class="nav-item">
-						<a class="navbar-link" href="#"><span class="barraNavegacao">Contato</span></a>
+						<a class="navbar-link" href="#"><span class="barraNavegacao"><i class="fas fa-mail-bulk"> Contato</i></span></a>
 					</li>
 				</ul>
 				<?php
 					if(!isset($logado)){
 				?>
-				<span class="navbar-text"><a href="/qualepi/index.php/UsuarioController/cadastro">Cadastro</a> | <a href="/qualepi/index.php/UsuarioController/login">Login</a> </span>
+				<span class="navbar-text"><a href="/qualepi/index.php/UsuarioController/cadastro"><i class="fab fa-wpforms"> Cadastro</i></a> | <a href="/qualepi/index.php/UsuarioController/login"><i class="fas fa-sign-in-alt"> Login</i></a> </span>
 				<?php
 			}else{
 				?>
@@ -57,7 +59,7 @@
 						<input type="text" class="form-control" id="pesquisa" placeholder="&#xF002;" >
 						</div>
 							<div class="col-md-1 col-lg-1 col-sm-4">
-								<button type="submit" id="btnBuscar" class="btn btn-success btn-sm">Buscar</button>
+								<button type="submit" id="btnBuscar" class="btn btn-success btn-sm"><i class="fas fa-search"></i> Buscar</button>
 							</div>
 					</div>
 					</div>

@@ -121,4 +121,56 @@ class EPIService {
 	public function dataParaString($data){
 		return date_format($data, 'd/m/y');
 	}
+
+	/**
+ 	* Formata data
+ 	* @param  $data string
+ 	* @return objeto do tipo date
+	*/
+    public function formataData($data){
+        return date("Y/m/d", strtotime($data));
+    }
+
+	public function atualizarEPI($em){
+		$CertificadoAprovacaoService = new \Service\CertificadoAprovacaoService;
+		    set_time_limit(60 * 60);
+            $arq = fopen("C:\\xampp\\htdocs\\qualepi\\application\\controllers\\teste.txt", "r");
+            $contador = 0;
+			while($linha = fgets($arq)){
+			$registro = explode("|", $linha);
+			$data = "$registro[1]";
+			$data1 = implode("/", array_reverse(explode("/", $data)));
+                        $dataFormatada = $this->formataData($data1);
+			$dados = array('id_ca' => $registro[0],
+                'numero_ca' => $registro[0],
+				'data_validade_ca' => $dataFormatada,
+				'situacao_ca' => $registro[2],
+				'numero_processo_ca' => $registro[3],
+				'cnpj_ca' => $registro[4],
+				'razao_social_ca' => $registro[5],
+				'natureza_ca' => $registro[6],
+				'nome_ca' => $registro[7],
+				'descricao_ca' => $registro[8],
+				'marca_ca' => $registro[9],
+				'referencia_ca' => $registro[10],
+				'cor_ca' => $registro[11],
+				'aprovado_para_ca' => $registro[12],
+				'restrito_para_ca' => $registro[13],
+				'observacoes_ca' => $registro[14],
+				'cnpj_laboratorio_ca' => $registro[15],
+				'razao_social_laboratorio_ca' => $registro[16],
+				'nr_laudo_ca' => $registro[17],
+				'norma_ca' => $registro[18]);
+			if($registro[2] != 'VENCIDO'){
+                if(!is_object($CertificadoAprovacaoService->find($registro[0], $em))){
+                        $certificadoAprovacao = $CertificadoAprovacaoService->insert($dados, $em);
+                        $dadosEPI = array('certificadoAprovacao' => $certificadoAprovacao);
+                        $this->insert($dadosEPI, $em);
+                        $contador++;
+                }
+			}
+		}
+		fclose($arq);
+		return $contador;
+	}
 }

@@ -5,7 +5,7 @@
 	</div>
 	<div class="card dadosUsuarioLogin">
   		<div class="card-header">
-    		Login
+    		<i class="fas fa-sign-in-alt"> Login</i>
   		</div>
   	<div class="card-body">
 		<div class="form-group offset-md-3">
@@ -19,8 +19,8 @@
 					<input type="password" class="form-control infosLogin" id="senha" name="senha" placeholder="Senha">
 				</div>
 			</div>
-			<div class="form-group offset-md-3" id="botaoLogin">
-				<button type="submit" class="btn btn-success" id="btnLogin">Logar</button>
+			<div class="col-lg-5 form-group offset-md-2" id="botaoLogin">
+				<button type="submit" class="btn btn-success" id="btnLogin"><i class="fas fa-paper-plane"> Enviar</i></button>
 			</div>
 		</div>
 </div>

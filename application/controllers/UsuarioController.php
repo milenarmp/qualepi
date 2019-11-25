@@ -44,7 +44,6 @@ class UsuarioController extends CI_Controller{
 			$retorno = array(
 	            	'msg' => TRUE,
 	        		);
-			echo json_encode($retorno);
 		}else{
 			$retorno = array(
 	            	'msg' => FALSE,
