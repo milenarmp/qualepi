@@ -12,9 +12,9 @@
 			<div class="card w-75 MTE">
 				<div class="card-body">
 					<h5 class="card-title"><i class="fas fa-link"> Links úteis</i></h5>
-					<div class="swiper-container">
+					<div class="swiper-container containerInicio">
 					    <div class="swiper-wrapper">
-							<div class="swiper-slide" >
+							<div class="swiper-slide slideInicio" >
 								<div>
 					  				<img src="<?=base_url("images/MTE.png") ?>" class="card-img-top" alt="...">
 					  				<div class="card-body">
@@ -24,7 +24,7 @@
 					  				</div>
 								</div>
 							</div>
-							<div class="swiper-slide" style="background-image:url(./images/nature-2.jpg)">
+							<div class="swiper-slide slideInicio" style="background-image:url(./images/nature-2.jpg)">
 								<div>
 					  				<img src="<?=base_url("images/EPI.jpg") ?>" class="card-img-top" alt="...">
 					  				<div class="card-body">

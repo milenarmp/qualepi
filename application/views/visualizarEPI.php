@@ -85,21 +85,29 @@
 					</div>
     			</div>
     			<div class="col-lg-5 scrolar">
-					<div class="comentarios">
-						<?php
-							foreach($retorno['comentarios'] as $comentario){
-						?>
-						<div class="itemComentario">
-						<h6>Título: <?=$comentario['titulo']?></h6>
-						<blockquote class="blockquote text-right">
-  						<p class="mb-0">"<?=$comentario['descricao']?>"</p>
-  						<footer class="blockquote-footer"><cite title="Título da fonte">Usuário: <?=$comentario['usuario']?></cite></footer>
-						</blockquote>
+					<div class="swiper-container containerComentarios">
+						<div class="swiper-wrapper slidesComentarios">
+							<?php
+								foreach($retorno['comentarios'] as $comentario){
+							?>
+							<div class="swiper-slide">
+								<div class="itemComentario">
+									<h6>Título: <?=$comentario['titulo']?></h6>
+									<blockquote class="blockquote text-right">
+			  						<p class="mb-0">"<?=$comentario['descricao']?>"</p>
+			  						<footer class="blockquote-footer"><cite title="Título da fonte">Usuário: <?=$comentario['usuario']?></cite></footer>
+									</blockquote>
+								</div>
+							</div>
+							<?php
+							}
+							?>
 						</div>
-						<?php
-						}
-						?>
-    				</div>
+						<div class="swiper-pagination"></div>
+					    <!-- Add Arrows -->
+					    <div class="swiper-button-next"></div>
+					    <div class="swiper-button-prev"></div>
+					</div>
 				</div>
 	  		</div>
 		</div>

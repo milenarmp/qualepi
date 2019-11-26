@@ -15,7 +15,6 @@ $this->load->helper('url');
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="<?=base_url("css/style.css") ?>">
     <link rel="stylesheet" href="<?=base_url("css/barraLateral.css") ?>">
 	<link rel="stylesheet" href="<?=base_url("assets/DataTables/datatables.min.css") ?>">
@@ -26,9 +25,6 @@ $this->load->helper('url');
 	<script src="https://kit.fontawesome.com/7904369503.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-
 	<script src="https://unpkg.com/swiper/js/swiper.js"></script>
 	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-	<script>
-	</script>
   </head>
