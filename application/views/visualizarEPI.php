@@ -100,10 +100,10 @@
 						}
 						?>
     				</div>
-			</div>
-  		</div>
+				</div>
+	  		</div>
+		</div>
 	</div>
-</div>
 </div>
 
 <div id="semLogin" class="modal" tabindex="-1" role="dialog">
