@@ -17,7 +17,7 @@
 				if($retorno['logado'] == TRUE){
 			?>
 			<div class="col-lg-1" id="botao1">
-	    		<button class="btn btn-danger" id="btnFavoritar"><i class="fas fa-heart"> Favoritar</i></button>
+	    		<button class="btn btn-success" id="btnFavoritar" style="width: 134px"><i class="fas fa-heart"> Favoritar</i></button>
 			</div>
 			<?php
 				}

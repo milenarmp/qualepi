@@ -10,12 +10,12 @@
   	<div class="card-body">
 		<div class="form-group offset-md-3">
 			<div class="row linha">
-				<div class="col-md-3 col-lg-8 col-sm-8">
+				<div class="col-md-10 col-lg-8 col-sm-8">
 					<input type="text" class="form-control infosLogin" id="nomeUsuario" name="nomeUsuario" placeholder="Nome de usuário">
 				</div>
 			</div>
 			<div class="row linha">
-				<div class="col-md-3 col-lg-8 col-sm-8">
+				<div class="col-md-10 col-lg-8 col-sm-8">
 					<input type="password" class="form-control infosLogin" id="senha" name="senha" placeholder="Senha">
 				</div>
 			</div>

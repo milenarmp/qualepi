@@ -5,10 +5,10 @@
       <div class="row">
 			<ul class="nav col-lg-8 links">
   				<li class="nav-item">
-    				<a class="nav-link barraRodape" href="#" >Contato</a>
+    				<a class="nav-link barraRodape" href="/qualepi/index.php/EPIController/contato" >Contato</a>
   				</li>
   				<li class="nav-item">
-    				<a class="nav-link barraRodape" href="http://trabalho.gov.br/">MTE</a>
+    				<a class="nav-link barraRodape" href="/qualepi/index.php/EPIController/sobreNos">Sobre Nós</a>
   				</li>
   				<li class="nav-item">
     				<a class="nav-link barraRodapeUltimo" href="/qualepi/index.php/UsuarioController/cadastro">Cadastro</a>

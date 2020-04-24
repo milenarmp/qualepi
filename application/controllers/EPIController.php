@@ -35,13 +35,16 @@ class EPIController extends CI_Controller{
  	* @return $retorno Array Json
 	*/
  	public function atualizarEPIs(){
- 		$contador = $this->EPIService->atualizarEPI($this->em);
-        $retorno = array(
+ 		if($this->userdata('nomeUsuario' == 'admin')){
+ 			$contador = $this->EPIService->atualizarEPI($this->em);
+        	$retorno = array(
             'registros' => $contador,
             'msg' => 'Sucesso! Quantidade de EPIs cadastrados: '
-        );
-        header('Content-type: application/json');
-        echo json_encode($retorno);
+        	);
+        	header('Content-type: application/json');
+        	echo json_encode($retorno);
+ 		}
+
  	}
 
 	/**
@@ -95,5 +98,29 @@ class EPIController extends CI_Controller{
 	*/
 	public function dataParaString($data){
 		return date_format($data, 'd/m/y');
+	}
+
+	/**
+ 	* Carrega a página sobrenos
+	*/
+	public function sobreNos(){
+    	$this->load->view('head', array('tituloPagina' => "Sobre nós"));
+    	$logado = $this->session->userdata('logado');
+		$nomeUsuario = $this->session->userdata('nomeUsuario');
+		$this->load->view('header', array('logado' => $logado, 'nomeUsuario' => $nomeUsuario));
+    	$this->load->view('sobrenos');
+    	$this->load->view('footer');
+	}
+
+		/**
+ 	* Carrega a página contato
+	*/
+	public function contato(){
+    	$this->load->view('head', array('tituloPagina' => "Contato"));
+    	$logado = $this->session->userdata('logado');
+		$nomeUsuario = $this->session->userdata('nomeUsuario');
+		$this->load->view('header', array('logado' => $logado, 'nomeUsuario' => $nomeUsuario));
+    	$this->load->view('contato');
+    	$this->load->view('footer');
 	}
 }

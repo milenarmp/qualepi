@@ -34,10 +34,10 @@
 						<a class="navbar-link" href="/qualepi/index.php/EPIController"><span class="barraNavegacao"><i class="fas fa-home"> Início</i></span></a>
 					</li>
 					<li class="nav-item">
-						<a class="navbar-link" href=""><span class="barraNavegacao"><i class="fas fa-id-card"> Sobre Nós</i></span></a>
+						<a class="navbar-link" href="/qualepi/index.php/EPIController/sobreNos"><span class="barraNavegacao"><i class="fas fa-id-card"> Sobre Nós</i></span></a>
 					</li>
 					<li class="nav-item">
-						<a class="navbar-link" href="#"><span class="barraNavegacao"><i class="fas fa-mail-bulk"> Contato</i></span></a>
+						<a class="navbar-link" href="/qualepi/index.php/EPIController/contato"><span class="barraNavegacao"><i class="fas fa-mail-bulk"> Contato</i></span></a>
 					</li>
 				</ul>
 				<?php
@@ -55,16 +55,16 @@
 			<div>
 				<div class="form-group">
 					<div class="row">
-					<div class="col-md-5 col-lg-6 col-sm-8 offset-md-1">
+					<div class="col-md-7 col-lg-6 col-sm-8 offset-md-1">
 						<input type="text" class="form-control" id="pesquisa" placeholder="&#xF002;" >
 						</div>
-							<div class="col-lg-1">
+							<div class="col-lg-1 col-md-2">
 								<button type="submit" id="btnBuscar" class="btn btn-success btn-sm" style="width: 82.4px"><i class="fas fa-search"></i> Buscar</button>
 							</div>
 					</div>
 					</div>
 					<div class="form-group" id="buscar">
-						<div class="col-md-5 offset-md-1 filtros">
+						<div class="col-md-6 offset-md-1 filtros">
 							<label>Pesquisar por:</label>
 							<div id="termo" name ="termo" class="btn-group" role="group" aria-label="Filtros" style="margin-bottom: 5px">
 								<button type="button" class="btn btn-success btn-sm">nº CA</button>
